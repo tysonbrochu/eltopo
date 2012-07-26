@@ -1,0 +1,54 @@
+
+relative_output_path sisc/normal-1
+
+frame_dt 0.005
+sim_dt 0.005
+end_sim_t 2.0
+
+normal_simulation
+(
+   speed 0.2
+)
+
+surftrack_parameters
+(
+   use_fraction 1
+   min_edge_length 0.5
+   max_edge_length 1.5
+   max_volume_change 0.1
+   min_curvature_multiplier 1.0
+   max_curvature_multiplier 1.0
+   merge_proximity 0.001
+   repulsion_proximity 0.0001
+   friction_coefficient 0.0
+   perform_improvement 1
+   allow_topology_changes 1
+   collision_safety 1
+   subdivision_scheme butterfly
+)
+
+sphere0
+( 
+   sphere_center [-0.25 0 0] 
+   sphere_radius 0.2
+   sphere_dx 0.1625
+   is_solid 0 
+)
+
+sphere1
+( 
+   sphere_center [0.25 0 0] 
+   sphere_radius 0.2
+   sphere_dx 0.1625
+   is_solid 0 
+)
+
+camera
+(
+   target [0.0 0.0 0.0]
+   distance 1.5
+   heading 0.0
+   pitch 0.0   
+)
+
+

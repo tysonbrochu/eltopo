@@ -1,0 +1,31 @@
+#
+# Local machine settings, for use with Makefile
+#
+# NOTE: Rename this file to "Makefile.local_defs" after specifying your machine settings
+#
+
+INCLUDE_PATH = -I. -I../eltopo3d -I../common -I../common/newsparse -I../common/sparse -I../common/meshes -I../common/tunicate -Icurlnoise -Idrivers 
+ELTOPO_PATH = ../eltopo3d
+
+RELEASE_FLAGS = -O3 -funroll-loops
+DEBUG_FLAGS = -g
+LINK = g++
+
+# For example, on Linux on a PC this will likely work:
+
+#DEPEND = g++ -D__LITTLE_ENDIAN__ -DUSE_FORTRAN_BLAS -DNO_GUI
+#CC = g++ -Wall -D__LITTLE_ENDIAN__ -DUSE_FORTRAN_BLAS -DNO_GUI -fPIC
+#LINK_LIBS = -lGL -lGLU -lglut -llapack -lblas 
+
+# On Mac OS X, this probably will work:
+
+LINK_LIBS = -framework OpenGL -framework GLUT -framework vecLib 
+
+DEPEND = g++ -DNO_GUI
+CC = g++ -Wall -DNO_GUI -fPIC
+
+# or, to use LLVM:
+
+#DEPEND = /Developer/usr/bin/clang -x c++ -DNO_GUI
+#CC = /Developer/usr/bin/clang -x c++ -Wall -DNO_GUI -fPIC
+

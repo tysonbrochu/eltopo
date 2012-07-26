@@ -1,0 +1,48 @@
+
+# Curl noise on an open surface
+
+relative_output_path sisc/open-curlnoise
+
+frame_dt 0.05
+sim_dt 0.05
+end_sim_t 5.0
+
+sisc_curl_noise_simulation
+(
+)
+
+surftrack_parameters
+(
+   use_fraction 1
+   min_edge_length 0.5
+   max_edge_length 1.5
+   max_volume_change 0.0005
+   min_curvature_multiplier 1.0
+   max_curvature_multiplier 1.0
+   merge_proximity 0.001
+   repulsion_proximity 0.0001
+   friction_coefficient 0.0
+   perform_improvement 1
+   allow_topology_changes 0
+   collision_safety 1
+   subdivision_scheme butterfly
+)
+
+sheet0
+(
+   corner [-3.0 0.0 -3.0] 
+   normal [0.0 1.0 0.0] 
+   dx 0.1 
+   ni 60 
+   nj 60
+)
+ 
+camera
+(
+   target [0.0 1.0 0.0]
+   distance 10.0
+   heading 0.609
+   pitch -0.525
+)
+
+

@@ -1,0 +1,49 @@
+
+relative_output_path sisc/meancurvature-2
+
+frame_dt 0.0001
+sim_dt 0.0001
+end_sim_t 0.025
+
+mean_curvature_simulation
+(
+   speed 1.0 
+   ground_truth_file sisc-scripts/hires-sethian.txt 
+   phi_domain_low [-1.0 -0.5 -0.5]
+   phi_domain_dx 0.01
+)
+
+surftrack_parameters
+(
+   use_fraction 1
+   min_edge_length 0.5
+   max_edge_length 1.5
+   max_volume_change 0.1
+   min_curvature_multiplier 1.0
+   max_curvature_multiplier 1.0
+   merge_proximity 0.001
+   repulsion_proximity 0.0001
+   friction_coefficient 0.0
+   perform_improvement 1
+   allow_topology_changes 1
+   collision_safety 1
+   subdivision_scheme butterfly
+)
+
+dumbbell
+(
+   domain_dx 0.07225
+   centre_a [-0.5 0 0]
+   centre_b [0.5 0 0]
+   sphere_radius 0.3
+   handle_width 0.2
+)
+
+camera
+(
+   target [0.0 0.0 0.0]
+   distance 1.5
+   heading 0.0
+   pitch 0.0   
+)
+

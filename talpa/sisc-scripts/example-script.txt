@@ -1,0 +1,77 @@
+
+# -------------------------------
+# Example script for Talpa
+# -------------------------------
+
+# Set the output directory.  This is where .obj mesh files, .sgi screenshots, and stats text files all go. The directory can either 
+# be relative, in which case it will be appended to the path specified by the command-line parameter, e.g.:
+#
+# relative_output_path sisc/enright
+#
+# or it can be absolute, e.g.:
+#
+# output_path /Users/tyson/scratch/sisc/enright
+#
+# Note that this directory is *not* created by default. In this example, we will use:
+
+relative_output_path sisc/example-enright
+
+
+# Set the length of a frame, and the default length of a simulation timestep:
+
+frame_dt 0.01
+sim_dt 0.01
+end_sim_t 3
+
+# The length of a timestep can also be specified by setting the number of substeps per frame, e.g.:
+# num_substeps 4
+
+
+# Specify the mesh driver class, and its parameters, if any.
+
+enright_simulation
+(
+)
+
+
+# Surface tracker parameters
+
+surftrack_parameters
+(
+   use_fraction 1
+   min_edge_length 0.5
+   max_edge_length 1.5
+   max_volume_change 0.1
+   min_curvature_multiplier 1.0
+   max_curvature_multiplier 1.0
+   merge_proximity 0.001
+   repulsion_proximity 0.0001
+   friction_coefficient 0.0
+   perform_improvement 1
+   allow_topology_changes 0
+   collision_safety 1
+   subdivision_scheme butterfly
+)
+
+# Initial geometry
+
+sphere 
+( 
+   sphere_center [0.35 0.35 0.35] 
+   sphere_radius 0.15
+   sphere_dx 0.036
+   is_solid 0 
+)
+
+
+# OpenGL camera
+
+camera
+(
+   target [0.5 0.5 0.35]
+   distance 1.5
+   heading 3.141592653589793
+   pitch 0.0   
+)
+
+

@@ -1,0 +1,46 @@
+
+# Run curl noise test without collision detection.
+
+relative_output_path sisc/tangled
+
+frame_dt 0.05
+sim_dt 0.05
+end_sim_t 22.5
+
+sisc_curl_noise_simulation
+(
+)
+
+surftrack_parameters
+(
+   use_fraction 1
+   min_edge_length 0.5
+   max_edge_length 1.5
+   max_volume_change 0.0005
+   min_curvature_multiplier 1.0
+   max_curvature_multiplier 1.0
+   merge_proximity 0.001
+   repulsion_proximity 0.0001
+   friction_coefficient 0.0
+   perform_improvement 1
+   allow_topology_changes 0
+   collision_safety 0
+   subdivision_scheme butterfly
+)
+
+sphere 
+( 
+   sphere_center [0.0 1.0 0.0] 
+   sphere_radius 1.0
+   sphere_dx 0.21
+   is_solid 0 
+)
+
+camera
+(
+   target [0.0 1.0 0.0]
+   distance 10.0
+   heading 0.0
+   pitch 0.0   
+)
+
