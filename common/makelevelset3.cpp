@@ -60,16 +60,16 @@ namespace {
                Array3d &phi, Array3i &closest_tri, const Vec3d &origin, double dx,
                int di, int dj, int dk)
     {
-        ssize_t i0, i1;
+        ptrdiff_t i0, i1;
         if(di>0){ i0=1; i1=phi.ni; }
         else{ i0=phi.ni-2; i1=-1; }
-        ssize_t j0, j1;
+        ptrdiff_t j0, j1;
         if(dj>0){ j0=1; j1=phi.nj; }
         else{ j0=phi.nj-2; j1=-1; }
-        ssize_t k0, k1;
+        ptrdiff_t k0, k1;
         if(dk>0){ k0=1; k1=phi.nk; }
         else{ k0=phi.nk-2; k1=-1; }
-        for(ssize_t k=k0; k!=k1; k+=dk) for(ssize_t j=j0; j!=j1; j+=dj) for(ssize_t i=i0; i!=i1; i+=di){
+        for(ptrdiff_t k=k0; k!=k1; k+=dk) for(ptrdiff_t j=j0; j!=j1; j+=dj) for(ptrdiff_t i=i0; i!=i1; i+=di){
             Vec3d gx(i*dx+origin[0], j*dx+origin[1], k*dx+origin[2]);
             check_neighbour(tri, x, phi, closest_tri, gx, i, j, k, i-di, j,    k);
             check_neighbour(tri, x, phi, closest_tri, gx, i, j, k, i,    j-dj, k);

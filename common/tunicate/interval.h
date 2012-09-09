@@ -11,7 +11,7 @@
 #define TUNICATE_INTERVAL_H
 
 #include <cassert>
-#include <fenv.h>
+#include <fenv_include.h>
 #include <intervalbase.h>
 
 class Interval;

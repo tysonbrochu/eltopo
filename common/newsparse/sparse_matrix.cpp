@@ -144,7 +144,7 @@ SparseMatrixStaticCSR(const SparseMatrixDynamicCSR &matrix)
 : LinearOperator(matrix.m, matrix.n), rowstart(matrix.m+1, 0),
 colindex(0), value(0)
 {
-    ssize_t nnz=0;
+    ptrdiff_t nnz=0;
     for(int i=0; i<m; ++i){
         nnz+=matrix.row[i].size();
         rowstart[i+1]=static_cast<int>(nnz);

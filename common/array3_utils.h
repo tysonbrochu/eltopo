@@ -8,7 +8,7 @@
 template<class S, class T>
 T cubic_interpolate_value(const Vec<3,S>& point, const Array3<T, Array1<T> >& grid) 
 {
-    ssize_t i,j,k;
+    ptrdiff_t i,j,k;
     S fi,fj,fk;
     
     get_barycentric(point[0], i, fi, 0, grid.ni);
@@ -22,7 +22,7 @@ T cubic_interpolate_value(const Vec<3,S>& point, const Array3<T, Array1<T> >& gr
 
 template<class S, class T>
 T interpolate_value(const Vec<3,S>& point, const Array3<T, Array1<T> >& grid) {
-    ssize_t i,j,k;
+    ptrdiff_t i,j,k;
     S fi,fj,fk;
     
     get_barycentric(point[0], i, fi, 0, grid.ni);
@@ -37,7 +37,7 @@ T interpolate_value(const Vec<3,S>& point, const Array3<T, Array1<T> >& grid) {
 
 template<class S,class T>
 T interpolate_gradient(Vec<3,T>& gradient, const Vec<3,S>& point, const Array3<T, Array1<T> >& grid) {
-    ssize_t i,j,k;
+    ptrdiff_t i,j,k;
     S fx,fy,fz;
     
     get_barycentric(point[0], i, fx, 0, grid.ni);

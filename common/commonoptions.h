@@ -19,7 +19,7 @@
 // Types
 
 #ifdef _MSC_VER
-typedef SSIZE_T ssize_t;
+typedef ptrdiff_t ptrdiff_t;
 #endif
 
 const double UNINITIALIZED_DOUBLE = 0x0F;

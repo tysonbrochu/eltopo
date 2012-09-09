@@ -5,8 +5,13 @@
 #include <fstream>
 #include <gluvi.h>
 #include <vec.h>
-
+#ifdef _MSC_VER
+#include <windows.h>
+#include <gl/GL.h>
+#else
 #include <OpenGL/OpenGL.h>
+#endif
+
 
 using namespace std;
 

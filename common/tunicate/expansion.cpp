@@ -266,7 +266,7 @@ void compress( const expansion& e, expansion& h )
     size_t bottom = e.v.size() - 1;
     double q = e.v[bottom];
     
-    for ( ssize_t i = e.v.size() - 2; i >= 0; --i )
+    for ( ptrdiff_t i = e.v.size() - 2; i >= 0; --i )
     {
         double new_q, small_q;
         fast_two_sum( q, e.v[i], new_q, small_q );

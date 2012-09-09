@@ -7,7 +7,7 @@
 
 template<class S, class T>
 T interpolate_value(const Vec<2,S>& point, const Array2<T, Array1<T> >& grid) {
-    ssize_t i,j;
+    ptrdiff_t i,j;
     S fx,fy;
     
     get_barycentric(point[0], i, fx, 0, grid.ni);
@@ -21,7 +21,7 @@ T interpolate_value(const Vec<2,S>& point, const Array2<T, Array1<T> >& grid) {
 
 template<class S, class T>
 float interpolate_gradient(Vec<2,T>& gradient, const Vec<2,S>& point, const Array2<T, Array1<T> >& grid) {
-    ssize_t i,j;
+    ptrdiff_t i,j;
     S fx,fy;
     get_barycentric(point[0], i, fx, 0, grid.ni);
     get_barycentric(point[1], j, fy, 0, grid.nj);

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3FF24F83-3512-4FC4-81E0-274B467A77D6}</ProjectGuid>
+    <RootNamespace>eltopo</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\common;..\common\tunicate;..\common\newsparse;..\eltopo3d;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__BIG_ENDIAN__;_CRT_SECURE_NO_WARNINGS;USE_FORTRAN_BLAS;NO_GUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\array1.h" />
+    <ClInclude Include="..\common\array2.h" />
+    <ClInclude Include="..\common\array2_utils.h" />
+    <ClInclude Include="..\common\array3.h" />
+    <ClInclude Include="..\common\array3_utils.h" />
+    <ClInclude Include="..\common\bfstream.h" />
+    <ClInclude Include="..\common\blas_wrapper.h" />
+    <ClInclude Include="..\common\ccd_defs.h" />
+    <ClInclude Include="..\common\ccd_wrapper.h" />
+    <ClInclude Include="..\common\collisionqueries.h" />
+    <ClInclude Include="..\common\commonoptions.h" />
+    <ClInclude Include="..\common\fileio.h" />
+    <ClInclude Include="..\common\gluvi.h" />
+    <ClInclude Include="..\common\grid3.h" />
+    <ClInclude Include="..\common\hashtable.h" />
+    <ClInclude Include="..\common\lapack_wrapper.h" />
+    <ClInclude Include="..\common\levelset.h" />
+    <ClInclude Include="..\common\makelevelset2.h" />
+    <ClInclude Include="..\common\makelevelset3.h" />
+    <ClInclude Include="..\common\marching_tiles_hires.h" />
+    <ClInclude Include="..\common\marching_triangles.h" />
+    <ClInclude Include="..\common\mat.h" />
+    <ClInclude Include="..\common\matlapack.h" />
+    <ClInclude Include="..\common\newsparse\bicgstab.h" />
+    <ClInclude Include="..\common\newsparse\dense_matrix.h" />
+    <ClInclude Include="..\common\newsparse\krylov_solvers.h" />
+    <ClInclude Include="..\common\newsparse\linear_operator.h" />
+    <ClInclude Include="..\common\newsparse\sparse_matrix.h" />
+    <ClInclude Include="..\common\runstats.h" />
+    <ClInclude Include="..\common\tunicate\expansion.h" />
+    <ClInclude Include="..\common\tunicate\fenv_include.h" />
+    <ClInclude Include="..\common\tunicate\interval.h" />
+    <ClInclude Include="..\common\tunicate\intervalbase.h" />
+    <ClInclude Include="..\common\tunicate\neg.h" />
+    <ClInclude Include="..\common\tunicate\rootparitycollisiontest.h" />
+    <ClInclude Include="..\common\tunicate\tunicate.h" />
+    <ClInclude Include="..\common\util.h" />
+    <ClInclude Include="..\common\vec.h" />
+    <ClInclude Include="..\common\wallclocktime.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\bfstream.cpp" />
+    <ClCompile Include="..\common\collisionqueries.cpp" />
+    <ClCompile Include="..\common\cubic_ccd_wrapper.cpp" />
+    <ClCompile Include="..\common\fileio.cpp" />
+    <ClCompile Include="..\common\levelset.cpp" />
+    <ClCompile Include="..\common\makelevelset2.cpp" />
+    <ClCompile Include="..\common\makelevelset3.cpp" />
+    <ClCompile Include="..\common\marching_tiles_hires.cpp" />
+    <ClCompile Include="..\common\marching_triangles.cpp" />
+    <ClCompile Include="..\common\newsparse\dense_matrix.cpp" />
+    <ClCompile Include="..\common\newsparse\krylov_solvers.cpp" />
+    <ClCompile Include="..\common\newsparse\sparse_matrix.cpp" />
+    <ClCompile Include="..\common\root_parity_ccd_wrapper.cpp" />
+    <ClCompile Include="..\common\runstats.cpp" />
+    <ClCompile Include="..\common\tunicate\expansion.cpp" />
+    <ClCompile Include="..\common\tunicate\intersection.cpp" />
+    <ClCompile Include="..\common\tunicate\interval.cpp" />
+    <ClCompile Include="..\common\tunicate\neg.cpp" />
+    <ClCompile Include="..\common\tunicate\orientation.cpp" />
+    <ClCompile Include="..\common\tunicate\rootparitycollisiontest.cpp" />
+    <ClCompile Include="..\common\wallclocktime.cpp" />
+    <ClCompile Include="..\eltopo3d\accelerationgrid.cpp" />
+    <ClCompile Include="..\eltopo3d\broadphasegrid.cpp" />
+    <ClCompile Include="..\eltopo3d\collisionpipeline.cpp" />
+    <ClCompile Include="..\eltopo3d\dynamicsurface.cpp" />
+    <ClCompile Include="..\eltopo3d\edgecollapser.cpp" />
+    <ClCompile Include="..\eltopo3d\edgeflipper.cpp" />
+    <ClCompile Include="..\eltopo3d\edgesplitter.cpp" />
+    <ClCompile Include="..\eltopo3d\eltopo.cpp" />
+    <ClCompile Include="..\eltopo3d\impactzonesolver.cpp" />
+    <ClCompile Include="..\eltopo3d\meshmerger.cpp" />
+    <ClCompile Include="..\eltopo3d\meshpincher.cpp" />
+    <ClCompile Include="..\eltopo3d\meshrenderer.cpp" />
+    <ClCompile Include="..\eltopo3d\meshsmoother.cpp" />
+    <ClCompile Include="..\eltopo3d\nondestructivetrimesh.cpp" />
+    <ClCompile Include="..\eltopo3d\subdivisionscheme.cpp" />
+    <ClCompile Include="..\eltopo3d\surftrack.cpp" />
+    <ClCompile Include="..\eltopo3d\trianglequality.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

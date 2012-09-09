@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "eltopo", "eltopo.vcxproj", "{3FF24F83-3512-4FC4-81E0-274B467A77D6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "talpa", "talpa.vcxproj", "{8C97C912-B3FD-49ED-834B-99F0917CF684}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FF24F83-3512-4FC4-81E0-274B467A77D6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3FF24F83-3512-4FC4-81E0-274B467A77D6}.Debug|Win32.Build.0 = Debug|Win32
+		{3FF24F83-3512-4FC4-81E0-274B467A77D6}.Release|Win32.ActiveCfg = Release|Win32
+		{3FF24F83-3512-4FC4-81E0-274B467A77D6}.Release|Win32.Build.0 = Release|Win32
+		{8C97C912-B3FD-49ED-834B-99F0917CF684}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8C97C912-B3FD-49ED-834B-99F0917CF684}.Debug|Win32.Build.0 = Debug|Win32
+		{8C97C912-B3FD-49ED-834B-99F0917CF684}.Release|Win32.ActiveCfg = Release|Win32
+		{8C97C912-B3FD-49ED-834B-99F0917CF684}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

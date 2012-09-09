@@ -101,7 +101,7 @@ void BroadPhaseGrid::build_acceleration_grid( AccelerationGrid& grid,
     
     // going backwards from n to 0, so hopefully the grid only has to allocate once
     
-    for( ssize_t i = n-1; i >= 0; i-- )
+    for( ptrdiff_t i = n-1; i >= 0; i-- )
     {
         // don't add inside-out AABBs
         if ( xmins[i][0] > xmaxs[i][0] )  { continue; }

@@ -30,7 +30,7 @@ namespace
     
     /// Overflow-checked cast to integer
     ///
-    int to_int( ssize_t a );
+    int to_int( ptrdiff_t a );
     
     /// Overflow-checked cast to integer
     ///
@@ -162,7 +162,7 @@ namespace
         }
     }
     
-    int to_int( ssize_t a )
+    int to_int( ptrdiff_t a )
     {
         assert( a < INT_MAX );
         return static_cast<int>(a);

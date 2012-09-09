@@ -279,7 +279,7 @@ inline int intlog2(int x)
 }
 
 template<class T>
-inline void get_barycentric(T x, ssize_t& i, T& f, ssize_t i_low, ssize_t i_high)
+inline void get_barycentric(T x, ptrdiff_t& i, T& f, ptrdiff_t i_low, ptrdiff_t i_high)
 {
     T s=std::floor(x);
     i=(int)s;
@@ -378,7 +378,7 @@ inline S bicubic_interp(const S& v00, const S& v10, const S& v20, const S& v30,
 }
 
 template<class S, class T>
-inline S tricubic_interp( const Array3<S, Array1<S> >& v, ssize_t i, ssize_t j, ssize_t k, T fx, T fy, T fz )
+inline S tricubic_interp( const Array3<S, Array1<S> >& v, ptrdiff_t i, ptrdiff_t j, ptrdiff_t k, T fx, T fy, T fz )
 {
     return cubic_interp( bicubic_interp( v(i+0,j+0,k+0), v(i+1,j+0,k+0), v(i+2,j+0,k+0), v(i+3,j+0,k+0), 
                                         v(i+0,j+1,k+0), v(i+1,j+1,k+0), v(i+2,j+1,k+0), v(i+3,j+1,k+0), 

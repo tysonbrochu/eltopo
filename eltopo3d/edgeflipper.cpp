@@ -198,12 +198,12 @@ bool EdgeFlipper::regularity_improves( size_t edge,
     
     // current vertex valences
     
-    ssize_t R = 0;
+    ptrdiff_t R = 0;
     
     size_t a = m_surf.m_mesh.m_edges[ edge ][0];
     size_t b = m_surf.m_mesh.m_edges[ edge ][1];
     
-    ssize_t err = vertex_valence(a) - 6;
+    ptrdiff_t err = vertex_valence(a) - 6;
     R += err * err;
     
     err = vertex_valence(b) - 6;
@@ -215,7 +215,7 @@ bool EdgeFlipper::regularity_improves( size_t edge,
     err = vertex_valence(third_vertex_1) - 6;
     R += err * err;
     
-    ssize_t R_after = 0;
+    ptrdiff_t R_after = 0;
     
     err = vertex_valence(a) - 1 - 6;
     R_after += err * err;

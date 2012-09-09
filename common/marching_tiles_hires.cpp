@@ -100,7 +100,7 @@ contour(void)
     tri.resize(0);
     x.resize(0);
     edge_cross.clear();
-    for(ssize_t k=0; k<phi.nk; ++k) for(ssize_t j=0; j<phi.nj; ++j) for(ssize_t i=0; i<phi.ni; ++i)
+    for(ptrdiff_t k=0; k<phi.nk; ++k) for(ptrdiff_t j=0; j<phi.nj; ++j) for(ptrdiff_t i=0; i<phi.ni; ++i)
         contour_tile(i,j,k);
 }
 
@@ -173,7 +173,7 @@ estimate_normals(void)
 double MarchingTilesHiRes::
 eval(double i, double j, double k)
 {
-    ssize_t p, q, r;
+    ptrdiff_t p, q, r;
     double f, g, h;
     /*
      get_barycentric(i, p, f, 0, phi.ni);
@@ -211,7 +211,7 @@ eval_gradient(double i, double j, double k, Vec3d& grad)
      grad[1]=gy;
      grad[2]=gz;
      */
-    ssize_t p, q, r;
+    ptrdiff_t p, q, r;
     double f, g, h;
     get_barycentric(i+0.5f, p, f, 1, phi.ni);
     get_barycentric(j+0.5f, q, g, 1, phi.nj);
