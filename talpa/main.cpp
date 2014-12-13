@@ -693,8 +693,7 @@ namespace {
             
             // re-initialize the simulation
             char filename[256];
-            strcpy( filename, sisc_script_directory );
-            strcat( filename, sisc_script_filenames[i].c_str() );
+            snprintf( filename, 256, "%s/%s", sisc_script_directory, sisc_script_filenames[i].c_str() );
             
             init_simulation( filename );
             
@@ -1601,12 +1600,12 @@ int main(int argc, char **argv)
     
     if ( argc > 2 )
     {
-        strcpy( g_base_output_path, argv[2] );
+        strncpy( g_base_output_path, argv[2], sizeof(g_base_output_path) );
     }
     else
     {
         // argc == 2
-        strcpy( g_base_output_path, "./" );
+        strncpy( g_base_output_path, "./", sizeof(g_base_output_path) );
     }
     
 #ifdef USE_GUI
