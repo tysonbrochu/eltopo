@@ -110,7 +110,7 @@ namespace LAPACK{
     // ---------------------------------------------------------
     
 #ifdef __APPLE__
-#include <vecLib/clapack.h>
+#include <Accelerate/Accelerate.h>
     
     inline int solve_general_system(int &n, int &nrhs, float *a, int lda, int *ipiv, float *b, int ldb, int &info)
     { return sgesv_( (__CLPK_integer*) &n, 

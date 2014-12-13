@@ -368,7 +368,7 @@ namespace BLAS{
 #ifdef USE_CBLAS
 #include <cblas.h>
 #elif defined __APPLE__
-#include <vecLib/cblas.h>
+#include <Accelerate/Accelerate.h>
 #endif
 
 namespace BLAS{
