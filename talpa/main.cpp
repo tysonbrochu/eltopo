@@ -181,8 +181,6 @@ namespace {
     ssize_t selected_edge = -1;
     ssize_t selected_triangle = -1;
     
-    bool use_smoke_renderer = false;
-    
     //
     // async stuff
     //
