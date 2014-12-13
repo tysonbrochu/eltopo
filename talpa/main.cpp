@@ -35,7 +35,7 @@
 
 // std
 #include <cstdio>
-#include <fenv.h>
+#include <fenv_include.h>
 #include <fstream>
 #include <vector>
 #include <queue>
@@ -68,8 +68,18 @@
 
 #include <stdio.h>
 #include <sys/types.h>
-#include <dirent.h>
+#include <dirent.h>    //for windows, you'll need http://www.softagalleria.net/dirent.php or something similar
 #include <sys/stat.h>
+
+#ifdef _MSC_VER
+
+#include <pthread.h> //requires use pthreads-win from http://sources.redhat.com/pthreads-win32/, or something like it
+
+//this is kind of hacky, but seems to do the trick for now (on Windows, the name is prefaced by an underscore)
+//so we'll just rename is here
+#define snprintf _snprintf 
+
+#endif
 
 // conditional includes
 #ifdef USE_GUI 
@@ -174,9 +184,9 @@ namespace {
     Gluvi::DynamicText* status_text_widget;
     
     // Mouse click / ray casting data
-    ssize_t selected_vertex = -1;
-    ssize_t selected_edge = -1;
-    ssize_t selected_triangle = -1;
+    ptrdiff_t selected_vertex = -1;
+    ptrdiff_t selected_edge = -1;
+    ptrdiff_t selected_triangle = -1;
     
     //
     // async stuff

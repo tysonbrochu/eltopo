@@ -163,7 +163,7 @@ void compute_volume_fractions(const Array2f& levelset, const Vec2f& ls_origin, f
     
     float sub_dx = v_dx / (float)(subdivisions+1);
     
-    for(ssize_t j = 0; j < volumes.nj; ++j) for(ssize_t i = 0; i < volumes.ni; ++i) {
+    for(ptrdiff_t j = 0; j < volumes.nj; ++j) for(ptrdiff_t i = 0; i < volumes.ni; ++i) {
         //centre of the volume cells
         Vec2f bottom_left = v_origin + Vec2f((float)i*v_dx, (float)j*v_dx);
         int inside_samples = 0;
@@ -180,7 +180,7 @@ void compute_volume_fractions(const Array3f& levelset, const Vec3f& ls_origin, f
     
     float sub_dx = v_dx / (float)(subdivisions+1);
     
-    for(ssize_t k = 0; k < volumes.nk; ++k) for(ssize_t j = 0; j < volumes.nj; ++j) for(ssize_t i = 0; i < volumes.ni; ++i) {
+    for(ptrdiff_t k = 0; k < volumes.nk; ++k) for(ptrdiff_t j = 0; j < volumes.nj; ++j) for(ptrdiff_t i = 0; i < volumes.ni; ++i) {
         //centre of the volume cells
         Vec3f bottom_left = v_origin + Vec3f(((float)i-0.5f)*v_dx, ((float)j-0.5f)*v_dx, ((float)k-0.5f)*v_dx);
         int inside_samples = 0;

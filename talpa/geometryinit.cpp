@@ -410,7 +410,7 @@ void project_to_exact_dumbbell( std::vector<Vec3d>& verts,
         
         pt -= dist * n;
         
-        assert( fabs( signed_distance_dumbbell( pt, sphere_a_centre, sphere_b_centre, sphere_radius, handle_width ) < 1e-8 ) ); 
+        assert( fabs( signed_distance_dumbbell( pt, sphere_a_centre, sphere_b_centre, sphere_radius, handle_width )) < 1e-8 ); 
     }
     
 }

@@ -25,7 +25,7 @@ struct Array3
     
     // the actual representation
     
-    ssize_t ni, nj, nk;
+    ptrdiff_t ni, nj, nk;
     ArrayT a;
     
     // the interface
@@ -34,27 +34,27 @@ struct Array3
     : ni(0), nj(0), nk(0), a(0)
     {}
     
-    Array3(ssize_t ni_, ssize_t nj_, ssize_t nk_)
+    Array3(ptrdiff_t ni_, ptrdiff_t nj_, ptrdiff_t nk_)
     : ni(ni_), nj(nj_), nk(nk_), a(ni_*nj_*nk_)
     { assert(ni_>=0 && nj_>=0 && nk_>=0); }
     
-    Array3(ssize_t ni_, ssize_t nj_, ssize_t nk_, ArrayT& a_)
+    Array3(ptrdiff_t ni_, ptrdiff_t nj_, ptrdiff_t nk_, ArrayT& a_)
     : ni(ni_), nj(nj_), nk(nk_), a(a_)
     { assert(ni_>=0 && nj_>=0 && nk_>=0); }
     
-    Array3(ssize_t ni_, ssize_t nj_, ssize_t nk_, const T& value)
+    Array3(ptrdiff_t ni_, ptrdiff_t nj_, ptrdiff_t nk_, const T& value)
     : ni(ni_), nj(nj_), nk(nk_), a(ni_*nj_*nk_, value)
     { assert(ni_>=0 && nj_>=0 && nk_>=0); }
     
-    Array3(ssize_t ni_, ssize_t nj_, ssize_t nk_, const T& value, size_type max_n_)
+    Array3(ptrdiff_t ni_, ptrdiff_t nj_, ptrdiff_t nk_, const T& value, size_type max_n_)
     : ni(ni_), nj(nj_), nk(nk_), a(ni_*nj_*nk_, value, max_n_)
     { assert(ni_>=0 && nj_>=0 && nk_>=0); }
     
-    Array3(ssize_t ni_, ssize_t nj_, ssize_t nk_, T* data_)
+    Array3(ptrdiff_t ni_, ptrdiff_t nj_, ptrdiff_t nk_, T* data_)
     : ni(ni_), nj(nj_), nk(nk_), a(ni_*nj_*nk_, data_)
     { assert(ni_>=0 && nj_>=0 && nk_>=0); }
     
-    Array3(ssize_t ni_, ssize_t nj_, ssize_t nk_, T* data_, size_type max_n_)
+    Array3(ptrdiff_t ni_, ptrdiff_t nj_, ptrdiff_t nk_, T* data_, size_type max_n_)
     : ni(ni_), nj(nj_), nk(nk_), a(ni_*nj_*nk_, data_, max_n_)
     { assert(ni_>=0 && nj_>=0 && nk_>=0); }
     
@@ -77,13 +77,13 @@ struct Array3
     //      return a[i+ni*(j+nj*k)];
     //   }
     
-    const T& operator()(ssize_t i, ssize_t j, ssize_t k) const
+    const T& operator()(ptrdiff_t i, ptrdiff_t j, ptrdiff_t k) const
     {
         assert(i>=0 && i<ni && j>=0 && j<nj && k>=0 && k<nk);
         return a[i+ni*(j+nj*k)];
     }
     
-    T& operator()(ssize_t i, ssize_t j, ssize_t k)
+    T& operator()(ptrdiff_t i, ptrdiff_t j, ptrdiff_t k)
     {
         assert(i>=0 && i<ni && j>=0 && j<nj && k>=0 && k<nk);
         return a[i+ni*(j+nj*k)];
@@ -232,7 +232,7 @@ struct Array3
     void reserve(int reserve_ni, int reserve_nj, int reserve_nk)
     { a.reserve(reserve_ni*reserve_nj*reserve_nk); }
     
-    void resize(ssize_t ni_, ssize_t nj_, ssize_t nk_)
+    void resize(ptrdiff_t ni_, ptrdiff_t nj_, ptrdiff_t nk_)
     {
         assert(ni_>=0 && nj_>=0 && nk_>=0);
         a.resize(ni_*nj_*nk_);
@@ -241,7 +241,7 @@ struct Array3
         nk=nk_;
     }
     
-    void resize(ssize_t ni_, ssize_t nj_, ssize_t nk_, const T& value)
+    void resize(ptrdiff_t ni_, ptrdiff_t nj_, ptrdiff_t nk_, const T& value)
     {
         assert(ni_>=0 && nj_>=0 && nk_>=0);
         a.resize(ni_*nj_*nk_, value);

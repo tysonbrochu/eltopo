@@ -1,7 +1,7 @@
 // Released into the public domain by Robert Bridson, 2009.
 
 #include <cassert>
-#include <fenv.h>
+#include <fenv_include.h>
 #include <cmath>
 #include <limits>
 #include <tunicate.h>
@@ -154,10 +154,17 @@ interval_orientation3d(const double* x0,
     *lower=simple_orientation3d(x0, x1, x2, x3);
     fesetround(FE_UPWARD);
     *upper=simple_orientation3d(x0, x1, x2, x3);
+#ifdef _MSC_VER
+    assert( !_isnan(*lower) );
+    assert( !_isnan(*upper) );
+    assert( _finite(*lower) );
+    assert( _finite(*upper) );
+#else
     assert( !std::isnan(*lower) );
     assert( !std::isnan(*upper) );
     assert( !std::isinf(*lower) );
     assert( !std::isinf(*upper) );
+#endif
     assert(*lower<=*upper);
 }
 

@@ -20,7 +20,11 @@
 #include <sisccurlnoisedriver.h>
 #include <subdivisionscheme.h>
 
-
+#ifdef _MSC_VER
+//this is kind of hacky, but seems to do the trick for now (on Windows, the name is prefaced by an underscore)
+//so we'll just rename is here
+#define snprintf _snprintf 
+#endif
 // ---------------------------------------------------------
 
 void ScriptInit::parse_surftrack_parameters( const ParseTree& surftrack_branch )
