@@ -95,16 +95,13 @@ RunStats g_stats;
 
 char g_output_path[256];  // Where to write output data
 char g_base_output_path[256];  // Where to write output data
-
-//extern unsigned int g_fluid_render_type;
-
 bool g_render_to_texture;
 
 #ifdef USE_GUI
 
 float camera_target[] = {0.0f, 0.0f, 0.0f};    // OpenGL camera points here
 Gluvi::Target3D gluvi_cam( camera_target, 10.0f, 0.0f, 0.0f, 45.0f, 0.1f, 20.0f );   // OpenGL camera
-
+bool g_take_screenshots = false;
 #else
 
 struct hack_camera
@@ -800,14 +797,16 @@ namespace {
             int ok = pthread_mutex_unlock( &thread_is_running_mutex );
             assert( ok == 0 );
             
-            // If first frame, output initial screen cap
-            
-            if ( frame_stepper->get_frame() == 0 )
+            if ( g_take_screenshots )
             {
-                // output initial conditions
-                char sgi_filename[256];
-                sprintf( sgi_filename, "%s/frame%04d.sgi", g_output_path, frame_stepper->get_frame() );      
-                Gluvi::sgi_screenshot( sgi_filename );         
+                // If first frame, output initial screen cap
+                if ( frame_stepper->get_frame() == 0 )
+                {
+                    // output initial conditions
+                    char sgi_filename[256];
+                    sprintf( sgi_filename, "%s/frame%04d.sgi", g_output_path, frame_stepper->get_frame() );      
+                    Gluvi::sgi_screenshot( sgi_filename );         
+                }
             }
             
             waiting_for_thread_to_finish = true;
@@ -837,9 +836,12 @@ namespace {
         
         pthread_mutex_lock( &surf_mutex );
         
-        char sgi_filename[256];
-        sprintf( sgi_filename, "%s/frame%04d.sgi", g_output_path, frame_stepper->get_frame() );      
-        Gluvi::sgi_screenshot( sgi_filename );
+        if ( g_take_screenshots )
+        {
+            char sgi_filename[256];
+            sprintf( sgi_filename, "%s/frame%04d.sgi", g_output_path, frame_stepper->get_frame() );      
+            Gluvi::sgi_screenshot( sgi_filename );
+        }
         
         // allow the driver to write to disk (e.g. for caching simulation data)
         driver->write_to_disk( g_output_path, frame_stepper->get_frame() );
