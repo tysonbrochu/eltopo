@@ -319,7 +319,7 @@ void FaceOffDriver::set_predicted_vertex_positions( const SurfTrack& surf,
         
         double length = sum_mu_l / sum_mu;
         
-        displacements[p] = length * normal_dispacement / mag(normal_dispacement);
+        displacements[p] += length * normal_dispacement / mag(normal_dispacement);
         
     }
     
