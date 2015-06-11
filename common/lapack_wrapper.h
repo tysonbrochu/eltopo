@@ -7,9 +7,22 @@
 
 #include <cmath>
 #include <iostream>
+#include <cassert>
 
 using std::max;
 using std::min;
+
+// Alec: moved these outside the `namespace LAPACK`
+#ifdef __APPLE__
+// http://stackoverflow.com/questions/26527077/compiling-with-accelerate-framework-on-osx-yosemite
+#ifndef __has_extension
+#define __has_extension(x) 0
+#endif
+#define vImage_Utilities_h
+#define vImage_CVUtilities_h
+#include <Accelerate/Accelerate.h>
+//#include <vecLib/cblas.h>
+#endif
 
 namespace LAPACK{
     
@@ -110,8 +123,7 @@ namespace LAPACK{
     // ---------------------------------------------------------
     
 #ifdef __APPLE__
-#include <Accelerate/Accelerate.h>
-    
+
     inline int solve_general_system(int &n, int &nrhs, float *a, int lda, int *ipiv, float *b, int ldb, int &info)
     { return sgesv_( (__CLPK_integer*) &n, 
                     (__CLPK_integer*) &nrhs, 

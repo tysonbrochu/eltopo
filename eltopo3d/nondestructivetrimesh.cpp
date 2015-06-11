@@ -368,6 +368,8 @@ size_t NonDestructiveTriMesh::get_edge_index(size_t vtx0, size_t vtx1) const
         {
             if( edge0 == edges1[e1] && m_edges[edge0][0] != m_edges[edge0][1] )
             {
+              const size_t e0 = m_edges[edge0][0];
+              const size_t e1 = m_edges[edge0][1];
                 assert( ( m_edges[edge0][0] == vtx0 && m_edges[edge0][1] == vtx1 ) ||
                        ( m_edges[edge0][1] == vtx0 && m_edges[edge0][0] == vtx1 ) );
                 

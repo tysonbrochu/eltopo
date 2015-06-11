@@ -1,8 +1,9 @@
 #ifndef ARRAY3_H
 #define ARRAY3_H
 
+#include "commonoptions.h"
+#include "array1.h"
 #include <algorithm>
-#include <array1.h>
 #include <cassert>
 #include <vector>
 

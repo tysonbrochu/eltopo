@@ -28,6 +28,13 @@ obj/%.o: ../common/%.cpp
 	$(CC) -c $(RELEASE_FLAGS) $(INCLUDE_PATH) -o $@ $<
 obj/%.o: %.cpp
 	$(CC) -c $(RELEASE_FLAGS) $(INCLUDE_PATH) -o $@ $<
+
+obj_debug/%.o: ../common/newsparse/%.cpp
+	$(CC) -c $(DEBUG_FLAGS) $(INCLUDE_PATH) -o $@ $<
+obj_debug/%.o: ../common/tunicate/%.cpp
+	$(CC) -c $(DEBUG_FLAGS) $(INCLUDE_PATH) -o $@ $<
+obj_debug/%.o: ../common/%.cpp
+	$(CC) -c $(DEBUG_FLAGS) $(INCLUDE_PATH) -o $@ $<
 obj_debug/%.o: %.cpp
 	$(CC) -c $(DEBUG_FLAGS) $(INCLUDE_PATH) -o $@ $<
 
