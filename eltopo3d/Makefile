@@ -20,9 +20,22 @@ include Makefile.inc
 
 # how to compile each file
 .SUFFIXES:
-obj/%.o:
+obj/%.o: ../common/newsparse/%.cpp
 	$(CC) -c $(RELEASE_FLAGS) $(INCLUDE_PATH) -o $@ $<
-obj_debug/%.o:
+obj/%.o: ../common/tunicate/%.cpp
+	$(CC) -c $(RELEASE_FLAGS) $(INCLUDE_PATH) -o $@ $<
+obj/%.o: ../common/%.cpp
+	$(CC) -c $(RELEASE_FLAGS) $(INCLUDE_PATH) -o $@ $<
+obj/%.o: %.cpp
+	$(CC) -c $(RELEASE_FLAGS) $(INCLUDE_PATH) -o $@ $<
+
+obj_debug/%.o: ../common/newsparse/%.cpp
+	$(CC) -c $(DEBUG_FLAGS) $(INCLUDE_PATH) -o $@ $<
+obj_debug/%.o: ../common/tunicate/%.cpp
+	$(CC) -c $(DEBUG_FLAGS) $(INCLUDE_PATH) -o $@ $<
+obj_debug/%.o: ../common/%.cpp
+	$(CC) -c $(DEBUG_FLAGS) $(INCLUDE_PATH) -o $@ $<
+obj_debug/%.o: %.cpp
 	$(CC) -c $(DEBUG_FLAGS) $(INCLUDE_PATH) -o $@ $<
 
 .PHONY: release

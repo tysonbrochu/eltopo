@@ -368,6 +368,11 @@ namespace BLAS{
 #ifdef USE_CBLAS
 #include <cblas.h>
 #elif defined __APPLE__
+#ifndef __has_extension
+#define __has_extension(x) 0
+#endif
+#define vImage_Utilities_h
+#define vImage_CVUtilities_h
 #include <Accelerate/Accelerate.h>
 #endif
 

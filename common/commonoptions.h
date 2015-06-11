@@ -16,12 +16,6 @@
 // Global constants
 // ---------------------------------------------------------
 
-// Types
-
-#ifdef _MSC_VER
-typedef ptrdiff_t ptrdiff_t;
-#endif
-
 const double UNINITIALIZED_DOUBLE = 0x0F;
 const double BIG_DOUBLE = 1e30;
 const size_t UNINITIALIZED_SIZE_T = static_cast<size_t> (~0);
