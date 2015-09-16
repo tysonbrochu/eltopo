@@ -30,5 +30,5 @@ Tyson Brochu and Robert Bridson: [Robust Topological Operations for Dynamic Expl
 
 [Ocean Waves Animation using Boundary Integral Equations and Explicit Mesh Tracking](http://tolk.ca/ocean-waves/)
 
-The [untangle](http://www.alecjacobson.com/weblog/?p=4341) function in (gptoolbox - Geometry Processing Toolbox (MATLAB))[https://github.com/alecjacobson/gptoolbox]
+The [untangle](http://www.alecjacobson.com/weblog/?p=4341) function in [gptoolbox - Geometry Processing Toolbox (MATLAB)](https://github.com/alecjacobson/gptoolbox)
 
