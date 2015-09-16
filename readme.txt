@@ -8,7 +8,7 @@ The current release contains source for the El Topo library, as well as Talpa, a
 
 The paper:
 
-Tyson Brochu and Robert Bridson: Robust Topological Operations for Dynamic Explicit Surfaces. SIAM Journal on Scientific Computing, vol. 31, no. 4 (2009), pp. 2472-2493. 
+Tyson Brochu and Robert Bridson: [Robust Topological Operations for Dynamic Explicit Surfaces.](http://www.cs.ubc.ca/labs/imager/tr/2009/eltopo/sisc2009.pdf) SIAM Journal on Scientific Computing, vol. 31, no. 4 (2009), pp. 2472-2493. 
 
 ===============================================================================
 
