@@ -5,6 +5,7 @@
 #include <array1.h>
 #include <cassert>
 #include <vector>
+#include <cstddef>
 
 template<class T, class ArrayT=std::vector<T> >
 struct Array3
