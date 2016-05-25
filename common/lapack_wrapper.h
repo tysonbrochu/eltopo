@@ -8,6 +8,10 @@
 #include <cmath>
 #include <iostream>
 
+#ifdef __APPLE__
+#include <Accelerate/Accelerate.h>
+#endif
+
 using std::max;
 using std::min;
 
@@ -110,7 +114,6 @@ namespace LAPACK{
     // ---------------------------------------------------------
     
 #ifdef __APPLE__
-#include <Accelerate/Accelerate.h>
     
     inline int solve_general_system(int &n, int &nrhs, float *a, int lda, int *ipiv, float *b, int ldb, int &info)
     { return sgesv_( (__CLPK_integer*) &n, 
