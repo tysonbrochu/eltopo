@@ -1,7 +1,7 @@
 
 # El Topo: Robust Topological Operations for Dynamic Explicit Surfaces
 
-El Topo is a public domain C++ package for tracking dynamic surfaces represented as triangle meshes in 3D. It robustly handles topology changes such as merging and pinching off, while adaptively maintaining a tangle-free, high-quality triangulation.
+El Topo is a free C++ package for tracking dynamic surfaces represented as triangle meshes in 3D. It robustly handles topology changes such as merging and pinching off, while adaptively maintaining a tangle-free, high-quality triangulation.
 
 The current release contains source for the El Topo library, as well as Talpa, an executable demonstrating several applications of our method. The code has been tested on OS X and Linux and is freely available for download. Please email me with questions and suggestions, and especially if you find it useful in your work.
 
