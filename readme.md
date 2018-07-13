@@ -32,3 +32,8 @@ Tyson Brochu and Robert Bridson: [Robust Topological Operations for Dynamic Expl
 
 The [untangle](http://www.alecjacobson.com/weblog/?p=4341) function in [gptoolbox - Geometry Processing Toolbox (MATLAB)](https://github.com/alecjacobson/gptoolbox)
 
+## SGP Award
+
+El Topo won the [2018 Symposium on Geometry Processing Software Award](https://sgp2018.sciencesconf.org/resource/page/id/8)! Previous winners can be found [here](http://awards.geometryprocessing.org/).
+
+
