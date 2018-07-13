@@ -14,11 +14,11 @@ This distribution contains the following directories:
 For information on building El Topo or Talpa, see the readme files in their
 respective directories.  I highly recommend seeing at least the El Topo readme before getting started.
 
-## The paper:
+## The paper
 
 Tyson Brochu and Robert Bridson: [Robust Topological Operations for Dynamic Explicit Surfaces.](http://www.cs.ubc.ca/labs/imager/tr/2009/eltopo/sisc2009.pdf) SIAM Journal on Scientific Computing, vol. 31, no. 4 (2009), pp. 2472-2493. 
 
-## Projects using or derived from El Topo:
+## Projects using or derived from El Topo
 
 [Matching Fluid Simulation Elements to Surface Geometry and Topology](http://www.cs.ubc.ca/labs/imager/tr/2010/MatchingSimulationToSurface/BBB2010.html)
 
