@@ -2,7 +2,7 @@
 //
 //  edgecollapser.h
 //  Tyson Brochu 2011
-//  
+//
 //  Functions supporting the "edge collapse" operation: removing short edges from the mesh.
 //
 // ---------------------------------------------------------
@@ -14,10 +14,12 @@
 //  Nested includes
 // ---------------------------------------------------------
 
-#include <meshoperator.h>
+#include "meshoperator.h"
 #include <vector>
 #include <vec.h>
 
+namespace ElTopo
+{
 // ---------------------------------------------------------
 //  Forwards and typedefs
 // ---------------------------------------------------------
@@ -31,9 +33,9 @@ class EdgeCollapseObserver;
 
 class EdgeCollapser : public MeshOperator
 {
-    
+
 public:
-    
+
     class PreEdgeCollapseInfo
     {
     public:
@@ -58,63 +60,63 @@ public:
         std::vector< size_t > m_triangles_incident_to_deleted_vertex;
         std::vector< size_t > m_new_triangles;
         std::vector< size_t > m_edges_incident_to_deleted_vertex;
-        
+
     };
 
-    
+
     EdgeCollapser( SurfTrack& surf, bool use_curvature, double min_curvature_multiplier );
-    
+
     bool small_angle_collapse_pass();
-    
+
     void process_mesh();
-    
+
     void add_observer( EdgeCollapseObserver* observer );
-    
+
     /// Mimimum edge length.  Edges shorter than this will be collapsed.
-    double m_min_edge_length;   
-    
+    double m_min_edge_length;
+
     bool m_use_curvature;
     double m_min_curvature_multiplier;
-    
-    
+
+
 private:
-    
+
     friend class SurfTrack;
-    
+
     bool edge_is_collapsible( size_t edge_index );
-    
-    void get_moving_triangles( size_t source_vertex, 
-                              size_t destination_vertex, 
+
+    void get_moving_triangles( size_t source_vertex,
+                              size_t destination_vertex,
                               size_t edge_index,
                               std::vector<size_t>& moving_triangles );
-    
-    void get_moving_edges( size_t source_vertex, 
-                          size_t destination_vertex, 
+
+    void get_moving_edges( size_t source_vertex,
+                          size_t destination_vertex,
                           size_t edge_index,
                           std::vector<size_t>& moving_edges );
-    
-    bool collapse_edge_pseudo_motion_introduces_collision( size_t source_vertex, 
-                                                          size_t destination_vertex, 
-                                                          size_t edge_index, 
+
+    bool collapse_edge_pseudo_motion_introduces_collision( size_t source_vertex,
+                                                          size_t destination_vertex,
+                                                          size_t edge_index,
                                                           const Vec3d& vertex_new_position );
-    
-    bool collapse_edge_introduces_normal_inversion( size_t source_vertex, 
-                                                   size_t destination_vertex, 
-                                                   size_t edge_index, 
+
+    bool collapse_edge_introduces_normal_inversion( size_t source_vertex,
+                                                   size_t destination_vertex,
+                                                   size_t edge_index,
                                                    const Vec3d& vertex_new_position );
-    
-    bool collapse_edge_introduces_volume_change( size_t source_vertex, 
-                                                size_t edge_index, 
-                                                const Vec3d& vertex_new_position );   
-    
-    bool collapse_edge_introduces_bad_angle( size_t source_vertex, 
-                                            size_t destination_vertex, 
-                                            size_t edge_index, 
+
+    bool collapse_edge_introduces_volume_change( size_t source_vertex,
+                                                size_t edge_index,
+                                                const Vec3d& vertex_new_position );
+
+    bool collapse_edge_introduces_bad_angle( size_t source_vertex,
+                                            size_t destination_vertex,
+                                            size_t edge_index,
                                             const Vec3d& vertex_new_position );
-    
+
     bool collapse_edge( size_t edge );
-    
-    
+
+
     ///
     ///
     std::vector<EdgeCollapseObserver*> m_observers;
@@ -124,26 +126,28 @@ private:
 
 // ---------------------------------------------------------
 ///
-/// 
+///
 ///
 // ---------------------------------------------------------
 
 class EdgeCollapseObserver
 {
 public:
-    
+
     virtual ~EdgeCollapseObserver() {}
-    
+
     virtual bool operationOK( const SurfTrack& /*surf*/, const EdgeCollapser::PreEdgeCollapseInfo& /*info*/ )
     {
         return true;
     }
-    
+
     virtual void operationOccurred( const SurfTrack& /*surf*/, const EdgeCollapser::PostEdgeCollapseInfo& /*info*/ )
     {
     }
-    
+
 };
+
+} // namespace ElTopo
 
 #endif
 

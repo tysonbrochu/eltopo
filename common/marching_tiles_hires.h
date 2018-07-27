@@ -5,6 +5,8 @@
 #include <hashtable.h>
 #include <vec.h>
 
+namespace ElTopo {
+
 struct MarchingTilesHiRes
 {
     std::vector<Vec3ui> tri;
@@ -35,3 +37,5 @@ private:
 };
 
 #endif
+
+}  // namespace ElTopo

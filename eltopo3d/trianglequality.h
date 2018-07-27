@@ -2,7 +2,7 @@
 //
 //  trianglequality.h
 //  Tyson Brochu 2011
-//  
+//
 //  Functions for getting various triangle mesh measures.
 //
 // ---------------------------------------------------------
@@ -17,6 +17,8 @@
 //  Forwards and typedefs
 // ---------------------------------------------------------
 
+namespace ElTopo
+{
 class SurfTrack;
 
 // ---------------------------------------------------------
@@ -41,7 +43,7 @@ inline double circumcircle_radius( const Vec3d& a, const Vec3d& b, const Vec3d& 
 
 // ----------------------
 /// Each angle within the triangle (in radians).
-inline void triangle_angles( const Vec3d& a, const Vec3d& b, const Vec3d& c, 
+inline void triangle_angles( const Vec3d& a, const Vec3d& b, const Vec3d& c,
                             double& angle_a, double& angle_b, double& angle_c );
 
 // ----------------------
@@ -67,8 +69,8 @@ void compute_vertex_curvatures( const SurfTrack& surf, std::vector<double>& vert
 
 
 // ----------------------
-double get_curvature_scaled_length(const SurfTrack& surf, 
-                                   size_t vertex_a, 
+double get_curvature_scaled_length(const SurfTrack& surf,
+                                   size_t vertex_a,
                                    size_t vertex_b,
                                    double min_curvature_multiplier,
                                    double max_curvature_multiplier,
@@ -145,12 +147,12 @@ inline double circumcircle_radius( const Vec3d& a, const Vec3d& b, const Vec3d& 
 
 // ----------------------
 
-inline void triangle_angles( const Vec3d& a, const Vec3d& b, const Vec3d& c, 
+inline void triangle_angles( const Vec3d& a, const Vec3d& b, const Vec3d& c,
                             double& angle_a, double& angle_b, double& angle_c )
-{   
+{
     angle_a = acos( dot( normalized(b-a), normalized(c-a) ) );
     angle_b = acos( dot( normalized(a-b), normalized(c-b) ) );
-    angle_c = acos( dot( normalized(b-c), normalized(a-c) ) );   
+    angle_c = acos( dot( normalized(b-c), normalized(a-c) ) );
 }
 
 // ----------------------
@@ -168,25 +170,27 @@ inline double max_triangle_angle( const Vec3d& a, const Vec3d& b, const Vec3d& c
 {
     double angle_a, angle_b, angle_c;
     triangle_angles( a, b, c, angle_a, angle_b, angle_c );
-    return max( angle_a, angle_b, angle_c );   
+    return max( angle_a, angle_b, angle_c );
 }
 
 // ----------------------
 
 inline double triangle_aspect_ratio( const Vec3d& a, const Vec3d& b, const Vec3d& c )
 {
-    
+
     static const double NORMALIZATION_FACTOR = 6.0 / sqrt(3.0);
-    
+
     double len_01 = dist( b, a );
     double len_12 = dist( c, b );
     double len_20 = dist( a, c );
     double max_edge_length = max( len_01, len_12, len_20 );
     double semiperimeter = 0.5 * ( len_01 + len_12 + len_20 );
     double tri_area = area( a, b, c );
-    
+
     return NORMALIZATION_FACTOR * tri_area / ( semiperimeter * max_edge_length );
 }
+
+} // namespace ElTopo
 
 #endif
 

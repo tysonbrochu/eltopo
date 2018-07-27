@@ -2,7 +2,7 @@
 //
 //  meshoperator.h
 //  Tyson Brochu 2012
-//  
+//
 //  Base class for mesh processing operations.
 //
 // ---------------------------------------------------------
@@ -13,25 +13,30 @@
 #include <commonoptions.h>
 #include <vector>
 
+namespace ElTopo
+{
+
 class SurfTrack;
 
 class MeshOperator
 {
-    
+
 protected:
-    
+
     SurfTrack& m_surf;
-    
+
 public:
-    
-    MeshOperator( SurfTrack& surf ) : 
-        m_surf(surf) 
+
+    MeshOperator( SurfTrack& surf ) :
+        m_surf(surf)
     {}
-    
+
     virtual ~MeshOperator() {}
-    
+
     virtual void process_mesh() = 0;
-        
+
 };
+
+} // namespace ElTopo
 
 #endif

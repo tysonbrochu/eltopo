@@ -29,6 +29,8 @@
 // Local constants, typedefs, macros
 // ---------------------------------------------------------
 
+using namespace ElTopo;
+
 // ---------------------------------------------------------
 // Static function definitions
 // ---------------------------------------------------------
@@ -60,11 +62,11 @@ namespace {
         assert( info == 0 );
         
         // Now put them in descending order
-        swap( eigenvalues[0], eigenvalues[2] );
+        std::swap( eigenvalues[0], eigenvalues[2] );
         
-        swap( eigenvectors[0], eigenvectors[6] );
-        swap( eigenvectors[1], eigenvectors[7] );
-        swap( eigenvectors[2], eigenvectors[8] );
+        std::swap( eigenvectors[0], eigenvectors[6] );
+        std::swap( eigenvectors[1], eigenvectors[7] );
+        std::swap( eigenvectors[2], eigenvectors[8] );
     }
     
 }
@@ -182,7 +184,7 @@ void FaceOffDriver::intersection_point( const std::vector<Vec3d>& triangle_norma
     
     for ( unsigned int i = 0; i < 3; ++i )
     {
-        if ( eigenvalues[i] > G_EIGENVALUE_RANK_RATIO * eigenvalues[2] )
+        if ( eigenvalues[i] > ElTopo::G_EIGENVALUE_RANK_RATIO * eigenvalues[2] )
         {
             Vec3d eigenvector( A(0,i), A(1,i), A(2,i) );
             displacement_vector += dot(eigenvector, b) * eigenvector / eigenvalues[i];

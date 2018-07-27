@@ -88,15 +88,15 @@ public:
     // Surface geometry
     // --------
     
-    std::vector<Vec3d> vertices;
-    std::vector<Vec3st> triangles;
+    std::vector<ElTopo::Vec3d> vertices;
+    std::vector<ElTopo::Vec3st> triangles;
     std::vector<double> masses;
     
 
     // SurfTrack
     // --------
     
-    SurfTrackInitializationParameters surf_track_params;
+    ElTopo::SurfTrackInitializationParameters surf_track_params;
     
     // MeshDriver
     // --------
@@ -106,7 +106,7 @@ public:
     // GUI
     // --------
     
-    Vec3d camera_target;
+    ElTopo::Vec3d camera_target;
     double camera_distance, camera_heading, camera_pitch;
     
 };

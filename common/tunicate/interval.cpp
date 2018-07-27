@@ -9,6 +9,10 @@
 
 #include <interval.h>
 
+namespace ElTopo {
+
 int Interval::s_previous_rounding_mode = ~0;
+
+}  // namespace ElTopo
 
 

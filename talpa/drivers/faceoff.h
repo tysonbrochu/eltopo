@@ -26,7 +26,10 @@
 //  Forwards and typedefs
 // ---------------------------------------------------------
 
+namespace ElTopo
+{
 class NonDestructiveTriMesh;
+}
 
 // ---------------------------------------------------------
 //  Class definitions
@@ -48,7 +51,7 @@ public:
     
     /// Constructor 
     /// 
-    FaceOffDriver( double in_speed, const Vec3d& in_sphere_a_centre, const Vec3d& in_sphere_b_centre, double in_max_radius, double in_interior_radius ) : 
+    FaceOffDriver( double in_speed, const ElTopo::Vec3d& in_sphere_a_centre, const ElTopo::Vec3d& in_sphere_b_centre, double in_max_radius, double in_interior_radius ) :
     speed(in_speed) ,
     sphere_a_centre(in_sphere_a_centre),
     sphere_b_centre(in_sphere_b_centre),   
@@ -56,26 +59,26 @@ public:
     interior_radius(in_interior_radius)
     {}
     
-    void initialize( const SurfTrack& );
+    void initialize( const ElTopo::SurfTrack& );
     
     /// Get the quadric metric tensor at a vertex from the given incident triangles
     ///   
-    void compute_quadric_metric_tensor( const std::vector<Vec3d>& triangle_normals, 
+    void compute_quadric_metric_tensor( const std::vector<ElTopo::Vec3d>& triangle_normals,
                                        const std::vector<double>& triangle_areas, 
                                        const std::vector<size_t>& incident_triangles,
-                                       Mat33d& quadric_metric_tensor );
+      ElTopo::Mat33d& quadric_metric_tensor );
     
     /// Return intersection point between a set of planes in the least-squares sense
     ///
-    void intersection_point( const std::vector<Vec3d>& triangle_normals, 
+    void intersection_point( const std::vector<ElTopo::Vec3d>& triangle_normals,
                             const std::vector<double>& triangle_plane_distances,
                             const std::vector<double>& triangle_areas, 
                             const std::vector<size_t>& incident_triangles,
-                            Vec3d& out);
+      ElTopo::Vec3d& out);
     
     /// Assign a velocity vector to each mesh vertex
     /// 
-    void set_predicted_vertex_positions( const SurfTrack& surf, std::vector<Vec3d>& predicted_positions, double current_t, double& adaptive_dt );
+    void set_predicted_vertex_positions( const SurfTrack& surf, std::vector<ElTopo::Vec3d>& predicted_positions, double current_t, double& adaptive_dt );
     
     /// Compute the distance from vertices to analytic surface, weighted by associated vertex area
     /// 
@@ -97,7 +100,7 @@ public:
     //
     
     /// Geometry to compare against
-    Vec3d sphere_a_centre, sphere_b_centre;
+    ElTopo::Vec3d sphere_a_centre, sphere_b_centre;
     
     /// radius of spheres when motion switches from positive to negative
     double max_radius;         

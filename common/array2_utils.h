@@ -5,6 +5,8 @@
 #include <array2.h>
 #include <util.h>
 
+namespace ElTopo {
+
 template<class S, class T>
 T interpolate_value(const Vec<2,S>& point, const Array2<T, Array1<T> >& grid) {
     ptrdiff_t i,j;
@@ -59,5 +61,7 @@ void write_matlab_array(std::ostream &output, Array2<T, Array1<T> >&a, const cha
         output<<"'";
     output<<";"<<std::endl;
 }
+
+} // namespace ElTopo
 
 #endif

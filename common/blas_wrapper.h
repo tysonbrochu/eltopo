@@ -6,6 +6,8 @@
 #include <cstring>
 #include <vector>
 
+#define USE_MKL_CBLAS
+
 // Useful dense kernels from BLAS, with readable, overloaded, cross-platform names and some simplified calling
 //  dot    (dot-product of vectors)
 //  nrm2   (2-norm of a vector)
@@ -28,6 +30,7 @@
 //    USE_FORTRAN_BLAS (if your BLAS calls should look like dgemm_ with FORTRAN calling conventions, as in GOTO BLAS)
 //    USE_AMD_BLAS     (if using the AMD Math Library)
 //    USE_CBLAS        (if instead you have calls like cblas_dgemm, and have a file "cblas.h" available)
+//    USE_MKL_CBLAS    (if you have the MKL, to access it via its own cblas interface)
 // or, if you're on the Mac, it will default to the vecLib CBLAS if none of these are specified.
 
 namespace BLAS{
@@ -363,12 +366,14 @@ namespace BLAS{
 };
 
 //============================================================================
-#elif defined USE_CBLAS || defined __APPLE__
+#elif defined USE_CBLAS || defined __APPLE__ || defined USE_MKL_CBLAS
 
 #ifdef USE_CBLAS
-#include <cblas.h>
+//#include <cblas.h>
+#elif defined USE_MKL_CBLAS
+#include <mkl.h>
 #elif defined __APPLE__
-#include <Accelerate/Accelerate.h>
+#include <vecLib/cblas.h>
 #endif
 
 namespace BLAS{

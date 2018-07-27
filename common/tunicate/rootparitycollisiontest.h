@@ -10,7 +10,9 @@
 #include <interval.h>
 #include <expansion.h>
 
-namespace rootparity 
+namespace ElTopo {
+
+namespace rootparity
 {
     
     typedef Vec<3,IntervalType> Vec3Interval;
@@ -215,5 +217,7 @@ namespace rootparity
     
     
 } // namespace rootparity
+
+} // namespace ElTopo
 
 #endif

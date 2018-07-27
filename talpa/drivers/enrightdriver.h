@@ -43,11 +43,11 @@ public:
     inline void initialize( const SurfTrack& );
     
     // set velocity at (t,x)
-    inline void enright_velocity( double t, const Vec3d& pos, Vec3d& out );
+    inline void enright_velocity( double t, const ElTopo::Vec3d& pos, ElTopo::Vec3d& out );
     
-    inline virtual void set_predicted_vertex_positions( const SurfTrack& surf, std::vector<Vec3d>& predicted_positions, double current_t, double& adaptive_dt );
+    inline virtual void set_predicted_vertex_positions( const ElTopo::SurfTrack& surf, std::vector<ElTopo::Vec3d>& predicted_positions, double current_t, double& adaptive_dt );
     
-    inline void compute_error( const SurfTrack& surf, double current_t );
+    inline void compute_error( const ElTopo::SurfTrack& surf, double current_t );
     
     // Volume enclosed by surface at t = 0.  Compare to end time to get error.
     double m_initial_volume;
@@ -64,7 +64,7 @@ public:
 ///
 // ---------------------------------------------------------
 
-inline void EnrightDriver::initialize( const SurfTrack& surf )
+inline void EnrightDriver::initialize( const ElTopo::SurfTrack& surf )
 {
     m_initial_volume = surf.get_volume();
 }
@@ -76,13 +76,13 @@ inline void EnrightDriver::initialize( const SurfTrack& surf )
 ///
 // ---------------------------------------------------------
 
-inline void EnrightDriver::enright_velocity( double t, const Vec3d& pos, Vec3d& out )
+inline void EnrightDriver::enright_velocity( double t, const ElTopo::Vec3d& pos, ElTopo::Vec3d& out )
 {
     double x = pos[0]; 
     double y = pos[1]; 
     double z = pos[2];
     
-    out = Vec3d( 2.0 * std::sin(M_PI*x) * std::sin(M_PI*x) * std::sin(2.0*M_PI*y) * std::sin(2.0*M_PI*z),
+    out = ElTopo::Vec3d( 2.0 * std::sin(M_PI*x) * std::sin(M_PI*x) * std::sin(2.0*M_PI*y) * std::sin(2.0*M_PI*z),
                 -std::sin(2.0*M_PI*x) * std::sin(M_PI*y)*std::sin(M_PI*y) * std::sin(2.0*M_PI*z),
                 -std::sin(2.0*M_PI*x) * std::sin(2.0*M_PI*y) * std::sin(M_PI*z) * std::sin(M_PI*z) );
     
@@ -98,33 +98,33 @@ inline void EnrightDriver::enright_velocity( double t, const Vec3d& pos, Vec3d& 
 ///
 // ---------------------------------------------------------
 
-inline void EnrightDriver::set_predicted_vertex_positions( const SurfTrack& surf, std::vector<Vec3d>& predicted_positions, double current_t, double& dt )
+inline void EnrightDriver::set_predicted_vertex_positions( const ElTopo::SurfTrack& surf, std::vector<ElTopo::Vec3d>& predicted_positions, double current_t, double& dt )
 {   
-    const std::vector<Vec3d>& x = surf.get_positions();  
+    const std::vector<ElTopo::Vec3d>& x = surf.get_positions();
     
     predicted_positions.resize( x.size() );
     
     for(unsigned int i=0; i < x.size(); ++i) 
     {
-        Vec3d v;
+      ElTopo::Vec3d v;
         
         // RK4
         // -----------
         // k1 = dt * f( t, x );
         enright_velocity( current_t, x[i], v );
-        Vec3d k1 = dt * v;
+        ElTopo::Vec3d k1 = dt * v;
         
         // k2 = dt * f( t + 0.5*dt, x + 0.5*k1 );
         enright_velocity( current_t + 0.5*dt, x[i] + 0.5 * k1, v );
-        Vec3d k2 = dt * v;
+        ElTopo::Vec3d k2 = dt * v;
         
         // k3 = dt * f( t + 0.5*dt, x + 0.5*k2 );
         enright_velocity( current_t + 0.5*dt, x[i] + 0.5 * k2, v );
-        Vec3d k3 = dt * v;
+        ElTopo::Vec3d k3 = dt * v;
         
         // k4 = dt * f( t + dt, x + k3 );
         enright_velocity( current_t + dt, x[i] + k3, v );
-        Vec3d k4 = dt * v;
+        ElTopo::Vec3d k4 = dt * v;
         
         predicted_positions[i] = x[i] + 1./6. * ( k1 + k4 ) + 1./3. * ( k2 + k3 );      
     }
@@ -138,7 +138,7 @@ inline void EnrightDriver::set_predicted_vertex_positions( const SurfTrack& surf
 ///
 // ---------------------------------------------------------
 
-inline void EnrightDriver::compute_error( const SurfTrack& surf, double current_t )
+inline void EnrightDriver::compute_error( const ElTopo::SurfTrack& surf, double current_t )
 {
     double delta_volume = surf.get_volume() - m_initial_volume;
     double percent_error = delta_volume / m_initial_volume * 100;

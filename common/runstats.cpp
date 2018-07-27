@@ -10,6 +10,7 @@
 
 #include <commonoptions.h>
 #include <fstream>
+#include <algorithm>
 
 // ------------------------------------------------------------------
 

@@ -25,6 +25,8 @@
 // Local constants, typedefs, macros
 // ---------------------------------------------------------
 
+using namespace ElTopo;
+
 // ---------------------------------------------------------
 // Static and non-member function definitions
 // ---------------------------------------------------------
@@ -62,9 +64,9 @@ void append_mesh( std::vector<Vec3st>& tris,
 ///
 // ---------------------------------------------------------
 
-void contour_phi( const Vec3d& domain_low, double domain_dx, Array3d& phi, std::vector<Vec3st>& tris, std::vector<Vec3d>& verts )
+void contour_phi( const Vec3d& domain_low, double domain_dx, ElTopo::Array3d& phi, std::vector<Vec3st>& tris, std::vector<Vec3d>& verts )
 {
-    MarchingTilesHiRes tiles( domain_low, domain_dx, phi );
+    ElTopo::MarchingTilesHiRes tiles( domain_low, domain_dx, phi );
     
     std::cout << "Contouring..." << std::endl;
     tiles.contour();
@@ -139,7 +141,7 @@ void create_circle( std::vector<Vec3d>& verts,
     masses.clear();
     masses.resize( verts.size(), 1.0 );
     
-    NonDestructiveTriMesh temp_tri_mesh;
+    ElTopo::NonDestructiveTriMesh temp_tri_mesh;
     temp_tri_mesh.set_num_vertices( verts.size() );
     for ( size_t i = 0; i < tris.size(); ++i )
     {
@@ -422,7 +424,7 @@ void project_to_exact_dumbbell( std::vector<Vec3d>& verts,
 ///
 // ---------------------------------------------------------
 
-void read_signed_distance( const char* filename, Array3d& signed_distance )
+void read_signed_distance( const char* filename, ElTopo::Array3d& signed_distance )
 {
     FILE* file = fopen( filename, "r" );
     if ( file == NULL )
@@ -480,7 +482,7 @@ void create_capsule_signed_distance( const Vec3d& capsule_end_a,
                                     double dx,
                                     const Vec3d& domain_low,
                                     const Vec3d& domain_high,                                     
-                                    Array3d& phi )
+  Array3d& phi )
 { 
     phi.resize( (int) ceil( (domain_high[0]-domain_low[0]) / dx), (int) ceil( (domain_high[1]-domain_low[1]) / dx), (int) ceil( (domain_high[2]-domain_low[2]) / dx) );
     
@@ -568,7 +570,7 @@ void create_cube_signed_distance( const Vec3d& cube_low,
                 double dist_low_z = cube_low[2] - pt[2];
                 double dist_high_z = pt[2] - cube_high[2];
                 
-                phi(i,j,k) = max( dist_low_x, dist_high_x, dist_low_y, dist_high_y, dist_low_z, dist_high_z );
+                phi(i,j,k) = ElTopo::max( dist_low_x, dist_high_x, dist_low_y, dist_high_y, dist_low_z, dist_high_z );
                 
             }
         }
@@ -625,7 +627,7 @@ void create_sphere( const Vec3d& sphere_centre,
     Array3d phi;
     create_sphere_signed_distance( sphere_centre, sphere_radius, dx, domain_low, domain_high, phi );  
     
-    MarchingTilesHiRes marching_tiles( domain_low, dx, phi );
+    ElTopo::MarchingTilesHiRes marching_tiles( domain_low, dx, phi );
     marching_tiles.contour();
     marching_tiles.improve_mesh();
     
@@ -729,8 +731,8 @@ double signed_distance_entropy(const Vec3d& x,
         if(max_radius<=0.5*d){ // if the spheres at maximum radius never intersected, life is simple
             return dist(x, a) - max_radius + interior_radius; // regular sphere distance
         }
-        double beta=std::sqrt(dist2(x, a) - sqr(alpha)); // distance between x and projection onto line through a and b
-        double gamma=std::sqrt(sqr(max_radius) - sqr(0.5*d)); // radius of intersection curve between spheres at max_radiu
+        double beta=std::sqrt(dist2(x, a) - ElTopo::sqr(alpha)); // distance between x and projection onto line through a and b
+        double gamma=std::sqrt(sqr(max_radius) - ElTopo::sqr(0.5*d)); // radius of intersection curve between spheres at max_radiu
         if(beta/alpha>=gamma/(0.5*d)){ // if closest point is still on a's sphere (not in the intersection region)
             return dist(x, a) - max_radius + interior_radius; // regular sphere distance
         }else{

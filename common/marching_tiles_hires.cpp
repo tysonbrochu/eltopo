@@ -1,5 +1,7 @@
 #include <marching_tiles_hires.h>
 
+namespace ElTopo {
+
 // definition of acute tile
 static const int num_nodes=40;
 static Vec3i node[num_nodes]={
@@ -402,4 +404,6 @@ find_edge_cross(const Vec3i& x0, const Vec3i& x1, double p0, double p1)
         return vertex_index;
     }
 }
+
+}  // namespace ElTopo
 

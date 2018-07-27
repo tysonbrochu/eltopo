@@ -68,12 +68,14 @@
 
 #include <stdio.h>
 #include <sys/types.h>
-#include <dirent.h>    //for windows, you'll need http://www.softagalleria.net/dirent.php or something similar
+#include "dirent.h"    //for windows, you'll need http://www.softagalleria.net/dirent.php or something similar
 #include <sys/stat.h>
 
 #ifdef _MSC_VER
 
+#ifdef USE_GUI 
 #include <pthread.h> //requires use pthreads-win from http://sources.redhat.com/pthreads-win32/, or something like it
+#endif
 
 //this is kind of hacky, but seems to do the trick for now (on Windows, the name is prefaced by an underscore)
 //so we'll just rename is here
@@ -86,6 +88,7 @@
 #include <gluvi.h> 
 #endif
 
+using namespace ElTopo;
 
 // ---------------------------------------------------------
 // Global interface declarations

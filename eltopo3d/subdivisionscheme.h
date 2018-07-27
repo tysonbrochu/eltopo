@@ -2,7 +2,7 @@
 //
 //  subdivisionscheme.h
 //  Tyson Brochu 2008
-//  
+//
 //  A collection of interpolation schemes for generating vertex locations.
 //
 // ---------------------------------------------------------
@@ -15,6 +15,9 @@
 // ---------------------------------------------------------
 
 #include <vec.h>
+
+namespace ElTopo
+{
 
 // ---------------------------------------------------------
 //  Forwards and typedefs
@@ -49,7 +52,7 @@ public:
 class MidpointScheme : public SubdivisionScheme
 {
 public:
-    void generate_new_midpoint( size_t edge_index, const SurfTrack& surface, Vec3d& new_point );   
+    void generate_new_midpoint( size_t edge_index, const SurfTrack& surface, Vec3d& new_point );
 };
 
 // --------------------------------------------------------
@@ -60,7 +63,7 @@ public:
 
 class ButterflyScheme : public SubdivisionScheme
 {
-public:   
+public:
     void generate_new_midpoint( size_t edge_index, const SurfTrack& surface, Vec3d& new_point );
 };
 
@@ -73,14 +76,14 @@ public:
 
 class ModifiedButterflyScheme : public SubdivisionScheme
 {
-    bool get_adjacent_vertices_ordered( size_t vertex_index, 
+    bool get_adjacent_vertices_ordered( size_t vertex_index,
                                        size_t first_edge,
                                        const NonDestructiveTriMesh& mesh,
                                        std::vector<size_t>& adjacent_vertices );
-    
+
     void get_coefficients( size_t vertex_degree, std::vector<double>& coefficients );
-    
-public:   
+
+public:
     void generate_new_midpoint( size_t edge_index, const SurfTrack& surface, Vec3d& new_point );
 };
 
@@ -98,6 +101,7 @@ public:
     void generate_new_midpoint( size_t edge_index, const SurfTrack& surface, Vec3d& new_point );
 };
 
+} // namespace ElTopo
 
 #endif
 

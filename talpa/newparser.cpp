@@ -1,6 +1,9 @@
 #include <newparser.h>
 #include <lexer.h>
 
+using ElTopo::Vec2d;
+using ElTopo::Vec3d;
+
 const ParseTree* ParseTree::
 get_branch(const std::string& name) const
 {

@@ -1,5 +1,7 @@
 #include <noise.h>
 
+using namespace ElTopo;
+
 namespace {
     
     template<unsigned int N> 

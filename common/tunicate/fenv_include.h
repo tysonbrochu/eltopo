@@ -22,14 +22,16 @@
 #define FE_TONEAREST  _RC_NEAR
 #define FE_TOWARDZERO _RC_CHOP
 
-inline void fesetround(unsigned int choice) {
-  _controlfp(choice, _MCW_RC);
+inline int fegetround() {
+  unsigned int result;
+  _controlfp_s(&result, 0, 0);
+  result = result & _MCW_RC;
+  return (int)result;
 }
 
-inline int fegetround() {
-  unsigned int control_word = _controlfp(0,0);
-  int roundmode = (control_word & _MCW_RC);
-  return roundmode;
+inline void fesetround(unsigned int choice) {
+  unsigned int result;
+  _controlfp_s(&result, choice, _MCW_RC);
 }
 
 #endif

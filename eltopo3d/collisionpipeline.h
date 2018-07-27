@@ -14,6 +14,8 @@
 #include <options.h>
 #include <vec.h>
 
+namespace ElTopo
+{
 
 bool check_edge_triangle_intersection_by_index(size_t edge_a, 
                                                size_t edge_b, 
@@ -417,5 +419,7 @@ inline bool check_triangle_triangle_intersection(Vec3st triangle_a,
     
     return false;
 }
+
+} // namespace ElTopo
 
 #endif

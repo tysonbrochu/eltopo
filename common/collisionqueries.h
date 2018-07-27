@@ -3,6 +3,8 @@
 
 #include <vec.h>
 
+namespace ElTopo {
+
 // 2D ====================================================================================================
 
 /// Compute distance between a 2D point and the closest point on a line segment.
@@ -56,5 +58,6 @@ void check_point_triangle_proximity(const Vec3d &x0, const Vec3d &x1, const Vec3
 ///
 double signed_volume(const Vec3d &x0, const Vec3d &x1, const Vec3d &x2, const Vec3d &x3);
 
+} //namespace ElTopo 
 
 #endif

@@ -4,6 +4,9 @@
 #include <cstring>
 #include <vec.h>
 
+namespace ElTopo
+{
+
 template<unsigned int M, unsigned int N, class T>
 struct Mat
 {
@@ -474,5 +477,7 @@ inline Mat<3,3,T> inverse(const Mat<3,3,T> &mat)
                       invdet*(mat(2,1)*mat(1,0)-mat(2,0)*mat(1,1)), -invdet*(mat(2,1)*mat(0,0)-mat(2,0)*mat(0,1)),  invdet*(mat(1,1)*mat(0,0)-mat(1,0)*mat(0,1))
                       );
 }
+
+} // namespace ElTopo
 
 #endif

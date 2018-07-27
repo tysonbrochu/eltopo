@@ -13,6 +13,8 @@
 
 #include <vec.h>
 
+namespace ElTopo {
+
 class IntervalBase
 {
     
@@ -133,6 +135,8 @@ inline bool same_sign( const IntervalBase& a, const IntervalBase& b )
     return a.same_sign(b);
 }
 
+
+} // namespace ElTopo
 
 #endif
 

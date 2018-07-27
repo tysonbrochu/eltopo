@@ -3,6 +3,8 @@
 #include <array2_utils.h>
 #include <array3_utils.h>
 
+namespace ElTopo {
+
 float interpolate_phi(const Vec2f& point, const Array2f& grid, const Vec2f& origin, const float dx) {
     float inv_dx = 1/dx;
     Vec2f temp = (point-origin)*inv_dx;
@@ -40,7 +42,7 @@ void project_to_isosurface(Vec2f& point, const float target_value, const Array2f
     int iter = 0;
     Vec2f normal;
     float phi = interpolate_normal(normal, point, grid, origin, dx);
-    while(fabs(phi - target_value) > tol && iter++ < max_iter) {
+    while(std::fabs(phi - target_value) > tol && iter++ < max_iter) {
         point -= (phi - target_value) * normal;
         phi = interpolate_normal(normal, point, grid, origin, dx);
     }
@@ -53,7 +55,7 @@ void project_to_isosurface(Vec3f& point, const float target_value, const Array3f
     int iter = 0;
     Vec3f normal;
     float phi = interpolate_normal(normal, point, grid, origin, dx);
-    while(fabs(phi - target_value) > tol && iter++ < max_iter) {
+    while(std::fabs(phi - target_value) > tol && iter++ < max_iter) {
         point -= (phi - target_value) * normal;
         phi = interpolate_normal(normal, point, grid, origin, dx);
     }
@@ -205,4 +207,6 @@ void compute_volume_fractions(const Array3f& levelset, const Vec3f& ls_origin, f
         volumes(i,j,k) = (float)inside_samples / (float)cube(subdivisions+1);
     }
 }
+
+}  // namespace ElTopo
 

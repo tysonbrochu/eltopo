@@ -17,12 +17,14 @@
 #include <vec.h>
 #include <vector>
 
-
 // ---------------------------------------------------------
 //  Forwards and typedefs
 // ---------------------------------------------------------
 
+namespace ElTopo
+{
 class NonDestructiveTriMesh;
+}
 
 namespace Gluvi
 {
@@ -39,14 +41,14 @@ namespace Gluvi
 //
 // ---------------------------------------------------------
 
-bool write_binary_file( const NonDestructiveTriMesh &mesh,  const std::vector<Vec3d> &x, const std::vector<double> &masses, double curr_t, const char *filename_format, ...);
-bool write_binary_file_with_velocities( const NonDestructiveTriMesh &mesh, const std::vector<Vec3d> &x, const std::vector<double> &masses, const std::vector<Vec3d> &v, double curr_t, const char *filename_format, ...);
+bool write_binary_file( const ElTopo::NonDestructiveTriMesh &mesh,  const std::vector<ElTopo::Vec3d> &x, const std::vector<double> &masses, double curr_t, const char *filename_format, ...);
+bool write_binary_file_with_velocities( const ElTopo::NonDestructiveTriMesh &mesh, const std::vector<ElTopo::Vec3d> &x, const std::vector<double> &masses, const std::vector<ElTopo::Vec3d> &v, double curr_t, const char *filename_format, ...);
 
 bool write_surface_ids( const std::vector<size_t> &ids,
                        const char *filename_format, ... );
 
-bool read_binary_file( NonDestructiveTriMesh &mesh, std::vector<Vec3d> &x, std::vector<double> &masses, double& curr_t, const char *filename_format, ...);
-bool read_binary_file_with_velocities( NonDestructiveTriMesh &mesh, std::vector<Vec3d> &x, std::vector<double> &masses, std::vector<Vec3d> &v, double& curr_t, const char *filename_format, ...);
+bool read_binary_file(ElTopo::NonDestructiveTriMesh &mesh, std::vector<ElTopo::Vec3d> &x, std::vector<double> &masses, double& curr_t, const char *filename_format, ...);
+bool read_binary_file_with_velocities(ElTopo::NonDestructiveTriMesh &mesh, std::vector<ElTopo::Vec3d> &x, std::vector<double> &masses, std::vector<ElTopo::Vec3d> &v, double& curr_t, const char *filename_format, ...);
 
 bool read_surface_ids( std::vector<unsigned int> &ids,
                       const char *filename_format, ... );
@@ -58,8 +60,8 @@ bool read_surface_ids( std::vector<unsigned int> &ids,
 //
 // ---------------------------------------------------------
 
-bool write_objfile(const NonDestructiveTriMesh &mesh, const std::vector<Vec3d> &x, const char *filename_format, ...);
-bool read_objfile(NonDestructiveTriMesh &mesh, std::vector<Vec3d> &x, const char *filename_format, ...);
+bool write_objfile(const ElTopo::NonDestructiveTriMesh &mesh, const std::vector<ElTopo::Vec3d> &x, const char *filename_format, ...);
+bool read_objfile(ElTopo::NonDestructiveTriMesh &mesh, std::vector<ElTopo::Vec3d> &x, const char *filename_format, ...);
 
 // ---------------------------------------------------------
 //
@@ -67,9 +69,9 @@ bool read_objfile(NonDestructiveTriMesh &mesh, std::vector<Vec3d> &x, const char
 //
 // ---------------------------------------------------------
 
-bool write_ribfile(const NonDestructiveTriMesh &mesh, const std::vector<float> &x, const char *filename_format, ...);
-bool write_ribfile(const NonDestructiveTriMesh &mesh, const std::vector<float> &x, std::ostream &output);
-bool write_ribfile(const NonDestructiveTriMesh &mesh, const std::vector<float> &x, FILE *output);
+bool write_ribfile(const ElTopo::NonDestructiveTriMesh &mesh, const std::vector<float> &x, const char *filename_format, ...);
+bool write_ribfile(const ElTopo::NonDestructiveTriMesh &mesh, const std::vector<float> &x, std::ostream &output);
+bool write_ribfile(const ElTopo::NonDestructiveTriMesh &mesh, const std::vector<float> &x, FILE *output);
 
 // ---------------------------------------------------------
 ///
@@ -77,7 +79,7 @@ bool write_ribfile(const NonDestructiveTriMesh &mesh, const std::vector<float> &
 ///
 // ---------------------------------------------------------
 
-bool output_shadow_rib( Gluvi::Target3D& light, const std::vector<Vec3d>& positions,  const NonDestructiveTriMesh& mesh, const char *filename_format, ...);
+bool output_shadow_rib( Gluvi::Target3D& light, const std::vector<ElTopo::Vec3d>& positions,  const ElTopo::NonDestructiveTriMesh& mesh, const char *filename_format, ...);
 
 // ---------------------------------------------------------
 ///
@@ -85,7 +87,7 @@ bool output_shadow_rib( Gluvi::Target3D& light, const std::vector<Vec3d>& positi
 ///
 // ---------------------------------------------------------
 
-bool output_rib( const std::vector<Vec3d>& positions, const NonDestructiveTriMesh& mesh, const char *filename_format, ...);
+bool output_rib( const std::vector<ElTopo::Vec3d>& positions, const ElTopo::NonDestructiveTriMesh& mesh, const char *filename_format, ...);
 
 // ---------------------------------------------------------
 //
@@ -93,8 +95,8 @@ bool output_rib( const std::vector<Vec3d>& positions, const NonDestructiveTriMes
 //
 // ---------------------------------------------------------
 
-bool write_pbrtfile(const NonDestructiveTriMesh &mesh, const std::vector<float> &x, const char *filename_format, ...);
-bool write_pbrtfile(const NonDestructiveTriMesh &mesh, const std::vector<float> &x, std::ostream &output);
+bool write_pbrtfile(const ElTopo::NonDestructiveTriMesh &mesh, const std::vector<float> &x, const char *filename_format, ...);
+bool write_pbrtfile(const ElTopo::NonDestructiveTriMesh &mesh, const std::vector<float> &x, std::ostream &output);
 
 
 // ---------------------------------------------------------

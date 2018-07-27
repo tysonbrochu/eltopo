@@ -2,6 +2,8 @@
 #include <array3.h>
 #include <vec.h>
 
+namespace ElTopo {
+
 //Functions for dealing with grid-based level sets, data stored at nodes
 float interpolate_phi(const Vec2f& point, const Array2f& grid, const Vec2f& origin, const float dx);
 float interpolate_phi(const Vec3f& point, const Array3f& grid, const Vec3f& origin, const float dx);
@@ -15,4 +17,7 @@ void compute_volume_fractions(const Array3f& levelset, const Vec3f& ls_origin, f
 //a couple handy functions for 1D distance fractions
 float fraction_inside(float phi_left, float phi_right);
 float fraction_inside_either(float phi_left0, float phi_right0, float phi_left1, float phi_right1);
+
+}  // namespace ElTopo
+
 

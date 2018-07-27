@@ -7,7 +7,10 @@
 #include <vector>
 #include <cstddef>
 
-template<class T, class ArrayT=std::vector<T> >
+namespace ElTopo
+{
+
+template<class T, class ArrayT = std::vector<T> >
 struct Array3
 {
     // STL-friendly typedefs
@@ -281,5 +284,7 @@ typedef Array3<short, Array1<short> > Array3s;
 typedef Array3<unsigned short, Array1<unsigned short> > Array3us;
 typedef Array3<char, Array1<char> > Array3c;
 typedef Array3<unsigned char, Array1<unsigned char> > Array3uc;
+
+} // namespace ElTopo
 
 #endif

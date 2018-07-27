@@ -1,4 +1,3 @@
-
 // ---------------------------------------------------------
 //
 //  ccd_wrapper.h
@@ -8,13 +7,12 @@
 //
 // ---------------------------------------------------------
 
-
 #ifndef CCD_WRAPPER_H
 #define CCD_WRAPPER_H
 
-#include <vec.h>
+#include "vec.h"
 
-
+namespace ElTopo {
 // --------------------------------------------------------------------------------------------------
 // 2D continuous collision detection
 // --------------------------------------------------------------------------------------------------
@@ -33,12 +31,12 @@ bool point_segment_collision(const Vec2d& x0, const Vec2d& xnew0, size_t index0,
 // 2D static intersection detection
 // --------------------------------------------------------------------------------------------------
 
-bool segment_segment_intersection(const Vec2d& x0, size_t index0, 
+bool segment_segment_intersection(const Vec2d& x0, size_t index0,
                                   const Vec2d& x1, size_t index1,
                                   const Vec2d& x2, size_t index2,
                                   const Vec2d& x3, size_t index3);
 
-bool segment_segment_intersection(const Vec2d& x0, size_t index0, 
+bool segment_segment_intersection(const Vec2d& x0, size_t index0,
                                   const Vec2d& x1, size_t index1,
                                   const Vec2d& x2, size_t index2,
                                   const Vec2d& x3, size_t index3,
@@ -84,7 +82,6 @@ bool segment_segment_collision(const Vec3d& x0, const Vec3d& xnew0, size_t index
                                Vec3d& normal,
                                double& relative_normal_displacement );
 
-
 // --------------------------------------------------------------------------------------------------
 // 3D static intersection detection
 // --------------------------------------------------------------------------------------------------
@@ -107,14 +104,12 @@ bool segment_triangle_intersection(const Vec3d& x0, size_t index0,
                                    bool degenerate_counts_as_intersection,
                                    bool verbose = false );
 
-
 // x0 is the point and x1-x2-x3-x4 is the tetrahedron. Order is irrelevant.
 bool point_tetrahedron_intersection(const Vec3d& x0, size_t index0,
                                     const Vec3d& x1, size_t index1,
                                     const Vec3d& x2, size_t index2,
                                     const Vec3d& x3, size_t index3,
                                     const Vec3d& x4, size_t index4);
-
+}
 
 #endif
-

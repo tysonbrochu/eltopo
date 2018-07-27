@@ -30,6 +30,9 @@ bifstream &operator>>(bifstream &input, long int &d)
 bifstream &operator>>(bifstream &input, unsigned long int &d)
 { return input.templated_read(d); }
 
+bifstream &operator>>(bifstream &input, unsigned long long &d)
+{ return input.templated_read(d); }
+
 bifstream &operator>>(bifstream &input, float &d)
 { return input.templated_read(d); }
 
@@ -67,6 +70,9 @@ bofstream &operator<<(bofstream &output, const long int &d)
 
 bofstream &operator<<(bofstream &output, const unsigned long int &d)
 { return output.templated_write(d); }
+
+bofstream &operator<<(bofstream &output, const unsigned long long &d)
+{return output.templated_write(d);}
 
 bofstream &operator<<(bofstream &output, const float &d)
 { return output.templated_write(d); }

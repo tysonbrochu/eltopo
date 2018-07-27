@@ -12,12 +12,15 @@
 
 #include <commonoptions.h>
 
+namespace ElTopo
+{
 // ---------------------------------------------------------
 // Global constants
 // ---------------------------------------------------------
 
 extern const double G_EIGENVALUE_RANK_RATIO;    // in surftrack.cpp
 
+} // namespace ElTopo
 
 #endif
 

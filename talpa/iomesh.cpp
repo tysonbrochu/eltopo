@@ -23,6 +23,7 @@
 
 #define LINESIZE 1024 // maximum line size when reading .OBJ files
 
+using namespace ElTopo;
 
 // ---------------------------------------------------------
 ///

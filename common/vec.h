@@ -7,6 +7,9 @@
 #include <iostream>
 #include <util.h>
 
+namespace ElTopo
+{
+
 // Defines a thin wrapper around fixed size C-style arrays, using template parameters,
 // which is useful for dealing with vectors of different dimensions.
 // For example, float[3] is equivalent to Vec<3,float>.
@@ -501,5 +504,7 @@ inline void update_minmax(const Vec<N,T> &x, Vec<N,T> &xmin, Vec<N,T> &xmax)
 {
     for(unsigned int i=0; i<N; ++i) update_minmax(x[i], xmin[i], xmax[i]);
 }
+
+} // namespace ElTopo
 
 #endif

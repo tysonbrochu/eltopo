@@ -26,8 +26,8 @@ struct ParseTree
     bool get_int(const std::string& name, int& result) const;
     bool get_string(const std::string& name, std::string& result) const;
     const Array1d* get_vector(const std::string& name) const;
-    bool get_vec2d(const std::string& name, Vec2d& v) const;
-    bool get_vec3d(const std::string& name, Vec3d& v) const;
+    bool get_vec2d(const std::string& name, ElTopo::Vec2d& v) const;
+    bool get_vec3d(const std::string& name, ElTopo::Vec3d& v) const;
     
     bool remove_first_matching_branch( const std::string& name );
     

@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 
+namespace ElTopo {
+
 template<class Key, class Data>
 struct HashEntry
 {
@@ -247,5 +249,7 @@ struct HashTable
         std::cout<<"longest list: "<<maxlength<<std::endl;
     }
 };
+
+}  // namespace ElTopo
 
 #endif

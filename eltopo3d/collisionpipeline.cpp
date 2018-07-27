@@ -18,6 +18,9 @@
 #include <runstats.h>
 #include <wallclocktime.h>
 
+namespace ElTopo
+{
+
 static const double IMPULSE_MULTIPLIER = 1.0;
     
 // --------------------------------------------------------
@@ -1272,10 +1275,7 @@ void CollisionPipeline::detect_collisions(size_t edge_index,
     
     double s0, s1, s2, s3, rel_disp;
     Vec3d normal;
-    
-    extern bool simplex_verbose;
-    simplex_verbose = true;
-    
+        
     // edge vs triangle edge 0
     
     if (segment_segment_collision(m_surface.get_position(e0), m_surface.get_newposition(e0), e0,
@@ -1364,8 +1364,6 @@ void CollisionPipeline::detect_collisions(size_t edge_index,
         Collision new_collision( false, Vec4st( e1, t0, t1, t2 ), normal, Vec4d( 1.0, s1, s2, s3 ), rel_disp );
         collisions.push_back( new_collision );
     }
-    
-    simplex_verbose = false;
     
     // ------
     
@@ -1988,5 +1986,8 @@ void CollisionPipeline::assert_predicted_mesh_is_intersection_free( bool degener
     }
     
 }
+
+}     // namespace ElTopo
+
 
 

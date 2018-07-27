@@ -3,7 +3,7 @@
 //  ScriptInit.cpp
 //  Tyson Brochu 2011
 //
-//  Parse a script text file to initialize the simulation and mesh obects.
+//  Parse a script text file to initialize the simulation and mesh objects.
 //
 // ---------------------------------------------------------
 
@@ -19,6 +19,8 @@
 #include <normaldriver.h>
 #include <sisccurlnoisedriver.h>
 #include <subdivisionscheme.h>
+
+using namespace ElTopo;
 
 #ifdef _MSC_VER
 //this is kind of hacky, but seems to do the trick for now (on Windows, the name is prefaced by an underscore)

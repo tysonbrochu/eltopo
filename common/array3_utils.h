@@ -5,6 +5,8 @@
 #include <util.h>
 #include <vec.h>
 
+namespace ElTopo {
+
 template<class S, class T>
 T cubic_interpolate_value(const Vec<3,S>& point, const Array3<T, Array1<T> >& grid) 
 {
@@ -83,5 +85,7 @@ T interpolate_gradient(Vec<3,T>& gradient, const Vec<3,S>& point, const Array3<T
                    v011, v111,
                    fx, fy, fz);
 }
+
+}  // namespace ElTopo
 
 #endif

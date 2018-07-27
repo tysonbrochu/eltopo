@@ -49,7 +49,7 @@ struct SISCCurlNoiseDriver: public CurlNoise3, public MeshDriver
     // Virtual functions 
     //
     
-    virtual bool seed_particles(std::vector<Vec3d>& /*x*/, double /*dt*/ ) const { return true; }   
+    virtual bool seed_particles(std::vector<ElTopo::Vec3d>& /*x*/, double /*dt*/ ) const { return true; }
     void advance_time(double /*dt*/) {}
     
     /// z-component of noise vector (x and y are 0)
@@ -58,15 +58,15 @@ struct SISCCurlNoiseDriver: public CurlNoise3, public MeshDriver
     
     /// Take the curl of this function to get velocity
     ///
-    Vec3d potential(double x, double y, double z) const;
+    ElTopo::Vec3d potential(double x, double y, double z) const;
     
     /// Set velocity on each mesh vertex
     ///
-    virtual void set_predicted_vertex_positions( const SurfTrack& surf, std::vector<Vec3d>& predicted_positions, double current_t, double& adaptive_dt );
+    virtual void set_predicted_vertex_positions( const ElTopo::SurfTrack& surf, std::vector<ElTopo::Vec3d>& predicted_positions, double current_t, double& adaptive_dt );
     
     /// Compute and output error (difference between current volume and initial volume)
     ///
-    void compute_error( const SurfTrack& surf, double current_t );
+    void compute_error( const ElTopo::SurfTrack& surf, double current_t );
     
     /// Parameters for each scale of noise
     ///

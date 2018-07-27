@@ -17,6 +17,8 @@
 #include <array3.h>
 #include <vec.h>
 
+namespace ElTopo
+{
 // ---------------------------------------------------------
 //  Forwards and typedefs
 // ---------------------------------------------------------
@@ -108,5 +110,6 @@ public:
     
 };
 
+} // namespace ElTopo
 
 #endif

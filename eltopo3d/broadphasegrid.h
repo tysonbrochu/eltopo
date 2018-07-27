@@ -14,8 +14,11 @@
 // Nested includes
 // ---------------------------------------------------------
 
-#include <broadphase.h>
-#include <accelerationgrid.h>
+#include "broadphase.h"
+#include "accelerationgrid.h"
+
+namespace ElTopo
+{
 
 // ---------------------------------------------------------
 //  Forwards and typedefs
@@ -386,6 +389,7 @@ inline void BroadPhaseGrid::get_triangle_aabb( size_t index, bool is_solid, Vec3
     }   
 }
 
+} // namespace ElTopo
 
 #endif
 

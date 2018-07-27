@@ -179,6 +179,7 @@ public:
     friend bifstream &operator>>(bifstream &, unsigned int &);
     friend bifstream &operator>>(bifstream &, long int &);
     friend bifstream &operator>>(bifstream &, unsigned long int &);
+    friend bifstream &operator>>(bifstream &, unsigned long long &);
     friend bifstream &operator>>(bifstream &, float &);
     friend bifstream &operator>>(bifstream &, double &);
 };
@@ -194,6 +195,7 @@ bifstream &operator>>(bifstream &input, int &d);
 bifstream &operator>>(bifstream &input, unsigned int &d);
 bifstream &operator>>(bifstream &input, long int &d);
 bifstream &operator>>(bifstream &input, unsigned long int &d);
+bifstream &operator>>(bifstream &input, unsigned long long &d);
 bifstream &operator>>(bifstream &input, float &d);
 bifstream &operator>>(bifstream &input, double &d);
 
@@ -353,6 +355,7 @@ public:
     friend bofstream &operator<<(bofstream &, const unsigned int &);
     friend bofstream &operator<<(bofstream &, const long int &);
     friend bofstream &operator<<(bofstream &, const unsigned long int &);
+    friend bofstream &operator<<(bofstream &, const unsigned long long &);
     friend bofstream &operator<<(bofstream &, const float &);
     friend bofstream &operator<<(bofstream &, const double &);
 };
@@ -367,6 +370,7 @@ bofstream &operator<<(bofstream &output, const int &d);
 bofstream &operator<<(bofstream &output, const unsigned int &d);
 bofstream &operator<<(bofstream &output, const long int &d);
 bofstream &operator<<(bofstream &output, const unsigned long int &d);
+bofstream &operator<<(bofstream &output, const unsigned long long &d);
 bofstream &operator<<(bofstream &output, const float &d);
 bofstream &operator<<(bofstream &output, const double &d);
 

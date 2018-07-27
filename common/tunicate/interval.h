@@ -14,6 +14,8 @@
 #include <fenv_include.h>
 #include <intervalbase.h>
 
+namespace ElTopo {
+
 class Interval;
 typedef Interval IntervalType;
 
@@ -285,6 +287,7 @@ inline void create_from_double( double a, Interval& out )
     out.v[1] = a;   
 }
 
+}  // namespace ElTopo
 
 #endif
 

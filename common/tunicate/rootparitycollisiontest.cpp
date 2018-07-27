@@ -2,6 +2,8 @@
 #include <rootparitycollisiontest.h>
 #include <cstdlib>
 
+namespace ElTopo {
+
 namespace rootparity 
 {
     
@@ -2410,5 +2412,6 @@ namespace rootparity
     
 }  // namespace rootparity 
 
+}  // namespace ElTopo
 
 

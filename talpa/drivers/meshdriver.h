@@ -22,6 +22,8 @@
 //  Forwards and typedefs
 // ---------------------------------------------------------
 
+using ElTopo::SurfTrack;
+
 // ---------------------------------------------------------
 //  Class definitions
 // ---------------------------------------------------------
@@ -54,9 +56,9 @@ public:
     ///
     virtual ~MeshDriver() {}
     
-    /// Initialise the driver with the surface at t = 0.  Default does nothing
+    /// Initialize the driver with the surface at t = 0.  Default does nothing
     ///
-    virtual void initialize( const SurfTrack& ) {}
+    virtual void initialize( const ElTopo::SurfTrack& ) {}
     
     /// Draw something with OpenGL.  Default does nothing.
     ///
@@ -64,27 +66,30 @@ public:
     
     /// Set velocities on each mesh vertex
     ///
-    virtual void set_predicted_vertex_positions( const SurfTrack& surf, std::vector<Vec3d>& predicted_positions, double current_t, double& adaptive_dt ) = 0;
-    
+    virtual void set_predicted_vertex_positions(
+        const ElTopo::SurfTrack &surf,
+        std::vector<ElTopo::Vec3d> &predicted_positions, double current_t,
+        double &adaptive_dt) = 0;
+
     /// Compute and output error.  Default does nothing.
     ///
-    virtual void compute_error( const SurfTrack&, double /*current_t*/ ) {}
+    virtual void compute_error( const ElTopo::SurfTrack&, double /*current_t*/ ) {}
     
     ///
     ///
-    virtual void notify_done_integration( const std::vector<Vec3d>& /*initial_positions*/, 
-                                         const std::vector<Vec3d>& /*final_positions*/, 
+    virtual void notify_done_integration( const std::vector<ElTopo::Vec3d>& /*initial_positions*/,
+                                         const std::vector<ElTopo::Vec3d>& /*final_positions*/,
                                          double /*actual_dt*/ ) 
     {}
     
     ///
     ///
-    virtual void update_simulation_elements( SurfTrack& surf ) 
+    virtual void update_simulation_elements(ElTopo::SurfTrack& surf )
     {
-        std::vector<VertexUpdateEvent>& vertex_history = surf.m_vertex_change_history;
+        std::vector<ElTopo::VertexUpdateEvent>& vertex_history = surf.m_vertex_change_history;
         vertex_history.clear();
         
-        std::vector<TriangleUpdateEvent>& triangle_history = surf.m_triangle_change_history;
+        std::vector<ElTopo::TriangleUpdateEvent>& triangle_history = surf.m_triangle_change_history;
         triangle_history.clear();        
     }
     

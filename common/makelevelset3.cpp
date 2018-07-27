@@ -1,5 +1,7 @@
 #include <makelevelset3.h>
 
+namespace ElTopo {
+
 namespace {
     
     // find distance x0 is from segment x1-x2
@@ -187,4 +189,6 @@ void make_level_set3(const std::vector<Vec3st> &tri, const std::vector<Vec3d> &x
         }
     }
 }
+
+}  // namespace ElTopo
 

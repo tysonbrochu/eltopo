@@ -1,6 +1,7 @@
 #include <collisionqueries.h>
 #include <commonoptions.h>
 
+namespace ElTopo {
 
 // 2D ====================================================================================================
 
@@ -384,3 +385,6 @@ double signed_volume(const Vec3d &x0, const Vec3d &x1, const Vec3d &x2, const Ve
        +x3[0]*(x2[1]*x1[2]+x1[1]*x0[2]+x0[1]*x2[2]) );
 }
 
+}   // namespace ElTopo
+
+  

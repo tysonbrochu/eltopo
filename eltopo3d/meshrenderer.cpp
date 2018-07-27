@@ -14,6 +14,8 @@
 #include <dynamicsurface.h>
 #include <gluvi.h>
 
+namespace ElTopo {
+
 
 //namespace {
 
@@ -304,6 +306,9 @@ void MeshRenderer::render( const std::vector<Vec3d>& xs,
     
 }
 
+}  // namespace ElTopo
+
 
 #endif // ndef NO_GUI
+
 
