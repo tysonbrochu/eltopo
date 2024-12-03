@@ -13,6 +13,8 @@
 
 #ifdef __cplusplus
 extern "C" {
+#else
+#include <stdbool.h>
 #endif
     
     
@@ -244,7 +246,7 @@ extern "C" {
     ///
     // ---------------------------------------------------------
     
-    void el_topo_integrate(const ElTopoMesh* inputs,
+    void el_topo_integrate(const struct ElTopoMesh* inputs,
                            const double* in_vertex_new_locations,
                            const struct ElTopoGeneralOptions* general_options,
                            const struct ElTopoIntegrationOptions* options,
