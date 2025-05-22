@@ -65,6 +65,7 @@ void el_topo_static_operations( const ElTopoMesh* inputs,
     construction_parameters.m_min_edge_length = options->m_min_edge_length;
     construction_parameters.m_max_edge_length = options->m_max_edge_length;
     construction_parameters.m_max_volume_change = options->m_max_volume_change;   
+    construction_parameters.m_min_triangle_area = options->m_min_triangle_area;
     construction_parameters.m_min_triangle_angle = options->m_min_triangle_angle;
     construction_parameters.m_max_triangle_angle = options->m_max_triangle_angle;
     construction_parameters.m_use_curvature_when_splitting = options->m_use_curvature_when_splitting;
@@ -76,6 +77,7 @@ void el_topo_static_operations( const ElTopoMesh* inputs,
     construction_parameters.m_merge_proximity_epsilon = options->m_merge_proximity_epsilon;
     construction_parameters.m_collision_safety = general_options->m_collision_safety;
     construction_parameters.m_allow_topology_changes = options->m_allow_topology_changes;
+    construction_parameters.m_allow_non_manifold = options->m_allow_non_manifold;
     construction_parameters.m_perform_improvement = options->m_perform_improvement;
     construction_parameters.m_subdivision_scheme = (SubdivisionScheme*) options->m_subdivision_scheme;
     
